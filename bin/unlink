@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# This script undoes symlinks from the home directory to any named dotfiles in
+# ~/dotfiles/. Any existing dotfiles will be restored from ~/dotfiles/backup/.                   
+dir=~/dotfiles
+backup=$dir/backup 
+dotfiles=$(ls | grep -v "$(cat .gitignore)" | grep -v 'README.md')
+
+for file in $dotfiles; do
+  dotfile=~/.$file
+  backup_file=$backup/.$file
+  
+  # remove symlinks
+  if [ -e $dotfile ] && [ "$(readlink $dotfile)" = $dir/$file ]; then
+    rm $dotfile
+  fi
+
+  # restore backups
+  if [ -e $backup_file ]; then
+    mv $backup_file ~/.$file 
+  fi
+done
+
+echo 'dotfiles unlinked'

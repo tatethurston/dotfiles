@@ -1,0 +1,25 @@
+[init]
+  templatedir = ~/.git_template
+[user]
+	email = tate@transcriptic.com
+	name = Tate
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore_global
+[help]
+	autocorrect = 1
+[diff]
+  compactionHeuristic = true
+[color "status"]
+  added     = yellow
+  changed   = green
+  untracked = cyan
+[pager]
+  log  = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
+[interactive]
+  diffFilter = diff-highlight
+[include]
+  path = ~/.gitconfig.local
