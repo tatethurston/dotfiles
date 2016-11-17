@@ -75,3 +75,10 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+" annoying
+set noswapfile
+" put swap, backup and undo files in this location instead of the working directory
+" double trailing slashes tells vim to avoid name collisions
+" set backupdir=~/.vim/backup//
+" set directory=~/.vim/swap//
+" set undodir=~/.vim/undo//

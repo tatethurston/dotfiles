@@ -23,3 +23,8 @@
   diffFilter = diff-highlight
 [include]
   path = ~/.gitconfig.local
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
