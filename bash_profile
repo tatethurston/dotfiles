@@ -40,6 +40,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # load bash completion
 [ -f $BREW_PREFIX/etc/bash_completion ] && source $BREW_PREFIX/etc/bash_completion
 
+# tmuxinator
+[ -e ~/.bin/tmuxinator.bash ] && source ~/.bin/tmuxinator.bash
+
 
 ### Aliases
 
@@ -48,10 +51,11 @@ alias mv='mv -i'
 alias r='. ~/.bash_profile'
 alias del='fc -s ls=rm'
 alias h=history
-alias dm=docker-machine
 alias npm-source='PATH=$(npm bin):$PATH'
 alias ag='ag --pager "less -R"'
 alias ctags='ctags $(git ls-files)'
+alias bp='~/.bash_profile'
+alias dc='docker-compose'
 
 ### BETTER DIRECTORY NAVIGATION
 
