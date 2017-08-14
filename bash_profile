@@ -21,7 +21,8 @@ export BREW_PREFIX=$(brew --prefix)
 NODE_PATH=~/.node/bin
 RBENV_PATH=~/.rbenv/bin
 DIFF_HIGHLIGHT=/usr/local/share/git-core/contrib/diff-highlight
-export PATH="$NODE_PATH:$RBENV_PATH:$DIFF_HIGHLIGHT:$PATH"
+YARN_PATH=/usr/local/Cellar/node/8.0.0_1/bin
+export PATH="$NODE_PATH:$RBENV_PATH:$DIFF_HIGHLIGHT:$YARN_PATH:$PATH"
 
 ### Loaders
 
@@ -85,7 +86,7 @@ mkgit() {
   curl -u $USER https://api.github.com/user/repos -d \{\"name\":\"$1\"\}
   git remote add origin https://github.com/$USER/$1.git
   git push origin master
-}      
+}
 
 ### Prompt
 

@@ -1,18 +1,17 @@
 " Plugins
 call plug#begin()
-Plug 'blueshirts/darcula'
+Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'godlygeek/tabular'
 Plug 'kchmck/vim-coffee-script'
-Plug 'morhetz/gruvbox'
+Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'tomasr/molokai'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'Valloric/YouCompleteMe'
-Plug 'leafgarland/typescript-vim'
+Plug 'morhetz/gruvbox'
 " Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
@@ -26,10 +25,10 @@ set background=dark
 " Spaces & Tabs
 set tabstop=2 shiftwidth=2 expandtab " tabs to 2 spaces
 set autoindent                       " autoindent
+set tw=80                            " wrap text at 80
 
 " UI Config
 set number
-set relativenumber
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
 set wildmenu            " visual autocomplete for command menu
@@ -105,3 +104,11 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols = {}
 let g:airline_symbols.branch = '⎇'
+
+function! JSFormat()
+    execute "! prettier --single-quote --write " . bufname("%")
+    execute "! ./node_modules/.bin/eslint --fix " . bufname("%")
+endfunction
+
+nnoremap <buffer> <leader>jf :call JSFormat()<cr>
+
