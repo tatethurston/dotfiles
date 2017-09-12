@@ -12,13 +12,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
-" Plug 'edkolev/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
 " Colors
 syntax enable
 "set termguicolors
-"let g:gruvbox_italic=1
+let g:gruvbox_italic=1
 silent! colorscheme gruvbox
 set background=dark
 

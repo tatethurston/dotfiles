@@ -25,29 +25,23 @@ YARN_PATH=/usr/local/Cellar/node/8.0.0_1/bin
 export PATH="$NODE_PATH:$RBENV_PATH:$DIFF_HIGHLIGHT:$YARN_PATH:$PATH"
 
 ### Loaders
+function load_if_exists(){
+  [ -e "$1" ] && source "$1"
+}
 
-# load .bashrc
-[ -e ~/.bashrc ] && source ~/.bashrc
-
-# load bash_profile extenstions
-[ -e ~/.bash_profile.local ] && source ~/.bash_profile.local
+load_if_exists ~/.bashrc
+load_if_exists ~/.bash_profile.local
+load_if_exists $BREW_PREFIX/nvm.sh
+load_if_exists $BREW_PREFIX/etc/bash_completion
+load_if_exists ~/.bin/tmuxinator.bash
 
 # load rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# load nvm
-[ -s $BREW_PREFIX/nvm.sh ] && source $BREW_PREFIX/nvm.sh
-
-# load bash completion
-[ -f $BREW_PREFIX/etc/bash_completion ] && source $BREW_PREFIX/etc/bash_completion
-
-# tmuxinator
-[ -e ~/.bin/tmuxinator.bash ] && source ~/.bin/tmuxinator.bash
-
 
 ### Aliases
 
-alias ls='ls -GFh'
+alias ls='ls -Fh'
 alias mv='mv -i'
 alias r='. ~/.bash_profile'
 alias del='fc -s ls=rm'
@@ -93,7 +87,13 @@ mkgit() {
 # Set color variables
 GREEN="\[\e[0;32m\]"
 LIGHT_RED="\[\e[1;31m\]"
-END_COLOR="\[\e[m\]" # This resets the color to default so the user input isn't colored
+ITALICS="\e[3m"
+END="\[\e[m\]" # This resets the color / font
+
+# show a '*' if there are unstaged changes and a '+' if there are staged (but uncommitted) changes
+GIT_PS1_SHOWDIRTYSTATE=true
+# Shell prompt with git branch info from '__git_ps1'
+export PS1="${GREEN}\w${ITALICS}${LIGHT_RED}\$(__git_ps1)${END} ${GREEN}\$ ${END}"
 
 # Display welcome message
 echo "Today is `date`."
@@ -104,8 +104,3 @@ echo "System uptime:"; uptime
 echo
 echo "Using bash version $BASH_VERSION"
 echo
-
-# show a '*' if there are unstaged changes and a '+' if there are staged (but uncommitted) changes
-GIT_PS1_SHOWDIRTYSTATE=true
-# Shell prompt with git branch info from '__git_ps1'
-export PS1="${GREEN}\w ${LIGHT_RED}\$(__git_ps1) ${GREEN}\$ ${END_COLOR}"
