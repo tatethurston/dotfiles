@@ -3,6 +3,7 @@ call plug#begin()
 Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'godlygeek/tabular'
+Plug 'mattn/emmet-vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
@@ -25,7 +26,7 @@ set background=dark
 " Spaces & Tabs
 set tabstop=2 shiftwidth=2 expandtab " tabs to 2 spaces
 set autoindent                       " autoindent
-set tw=80                            " wrap text at 80
+set textwidth=79                     " wrap text
 
 " UI Config
 set number
