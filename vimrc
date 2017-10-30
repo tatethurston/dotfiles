@@ -2,26 +2,25 @@
 call plug#begin()
 Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'edkolev/tmuxline.vim'
 Plug 'godlygeek/tabular'
-Plug 'mattn/emmet-vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
+Plug 'mattn/emmet-vim'
+Plug 'morhetz/gruvbox'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'morhetz/gruvbox'
-Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
 " Colors
 syntax enable
+set background=dark
 "set termguicolors
 let g:gruvbox_italic=1
 silent! colorscheme gruvbox
-set background=dark
 
 " Spaces & Tabs
 set tabstop=2 shiftwidth=2 expandtab " tabs to 2 spaces
@@ -38,10 +37,13 @@ set wildmenu            " visual autocomplete for command menu
 set wildmode=longest:list,full
 set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
-set laststatus=2        " always show airline
 set ruler               " shows row and column number at bottom right corner
 
 " Searching
+" uppercase search string => case sensitive search
+" lowercase search string => case insensitive search.
+set ignorecase
+set smartcase
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
@@ -98,13 +100,6 @@ set noswapfile
 " set backupdir=~/.vim/backup//
 " set directory=~/.vim/swap//
 " set undodir=~/.vim/undo//
-
-" airline
-let g:airline_powerline_fonts = 0
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols = {}
-let g:airline_symbols.branch = '⎇'
 
 function! JSFormat()
     execute "! prettier --single-quote --write " . bufname("%")

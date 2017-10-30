@@ -26,8 +26,11 @@ GNU_COREUTILS_PATH=/usr/local/opt/coreutils/libexec/gnubin
 AWS_CLI_PATH=~/Library/Python/3.6/bin
 export PATH="$NODE_PATH:$RBENV_PATH:$DIFF_HIGHLIGHT:$YARN_PATH:$GNU_COREUTILS_PATH:$AWS_CLI_PATH:$PATH"
 
+# MANPATH
+export MANPATH="$GNU_COREUTILS_PATH:$MANPATH"
+
 ### Loaders
-function load_if_exists(){
+load_if_exists() {
   [ -e "$1" ] && source "$1"
 }
 

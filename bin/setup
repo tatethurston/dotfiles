@@ -13,7 +13,7 @@ brew bundle
 
 
 ### VIM
-# set up vundle
+# set up plug
 if ! [ -e ~/.vim/autoload/plug.vim ]; then
   curl -s -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
