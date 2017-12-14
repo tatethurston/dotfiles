@@ -22,6 +22,10 @@ set background=dark
 let g:gruvbox_italic=1
 silent! colorscheme gruvbox
 
+"file encoding
+set encoding=utf-8     " The encoding displayed.
+set fileencoding=utf-8 " The encoding written to file.
+
 " Spaces & Tabs
 set tabstop=2 shiftwidth=2 expandtab " tabs to 2 spaces
 set autoindent                       " autoindent
