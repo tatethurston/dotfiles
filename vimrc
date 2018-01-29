@@ -8,17 +8,21 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
+"Plug 'altercation/vim-colors-solarized'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+" fzf
+" Plug '/usr/local/opt/fzf'
+" Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Colors
+set termguicolors
 syntax enable
 set background=dark
-"set termguicolors
 let g:gruvbox_italic=1
 silent! colorscheme gruvbox
 
@@ -63,6 +67,10 @@ augroup configgroup
     autocmd BufWritePre * %s/\s\+$//e " remove trailing space
 augroup END
 
+" Always show file
+set laststatus=2
+set statusline+=%F
+
 " MISC
 set nocompatible
 filetype plugin indent on  " load filetype-specific indent and plugin files on
@@ -83,7 +91,6 @@ nnoremap <C-H> <C-W><C-H>
 
 "YouCompleteMe settings
 let g:ycm_python_binary_path = 'python3'
-
 
 " CtrlP settings
 let g:ctrlp_match_window = 'bottom,order:ttb'

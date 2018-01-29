@@ -18,7 +18,7 @@ export NVM_DIR=~/.nvm
 export BREW_PREFIX=$(brew --prefix)
 
 # PATH
-NODE_PATH=~/.node/bin
+#NODE_PATH=~/.node/bin
 RBENV_PATH=~/.rbenv/bin
 DIFF_HIGHLIGHT=/usr/local/share/git-core/contrib/diff-highlight
 YARN_PATH=/usr/local/Cellar/node/8.0.0_1/bin
@@ -36,9 +36,10 @@ load_if_exists() {
 
 load_if_exists ~/.bashrc
 load_if_exists ~/.bash_profile.local
-load_if_exists $(brew --prefix nvm)/nvm.sh
-load_if_exists $BREW_PREFIX/etc/bash_completion
 load_if_exists ~/.bin/tmuxinator.bash
+#load_if_exists $BREW_PREFIX/opt/nvm/nvm.sh
+load_if_exists $BREW_PREFIX/etc/bash_completion
+load_if_exists ~/.fzf.bash
 
 # load rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -51,10 +52,10 @@ alias mv='mv -i'
 alias r='. ~/.bash_profile'
 alias del='fc -s ls=rm'
 alias h=history
-alias npm-source='PATH=$(npm bin):$PATH'
+#alias npm-source='PATH=$(npm bin):$PATH'
 alias ag='ag --pager "less -R"'
 alias ctags='ctags $(git ls-files)'
-alias bp='~/.bash_profile'
+#alias bp='~/.bash_profile'
 alias dc='docker-compose'
 
 ### BETTER DIRECTORY NAVIGATION
@@ -67,26 +68,6 @@ shopt -s dirspell 2> /dev/null
 shopt -s cdspell 2> /dev/null
 
 ### Functions
-
-# combine mkdir and cd
-mkcd () {
-  mkdir "$1"
-  cd "$1"
-}
-
-# make new git project
-# `mkgit repo-name`
-mkgit() {
-  USER=$(git config user.name)
-  echo "# $1" > README.md
-  git init
-  git add README.md
-  git commit -m "add README"
-  curl -u $USER https://api.github.com/user/repos -d \{\"name\":\"$1\"\}
-  git remote add origin https://github.com/$USER/$1.git
-  git push origin master
-}
-
 # Allow docker containers to connect to localhost on macOS
 macos_docker() {
   sudo ifconfig lo0 alias 10.200.10.1/24
