@@ -14,7 +14,6 @@ export HISTSIZE=50
 export PAGER=less
 export VISUAL=vim
 export EDITOR=vim
-export NVM_DIR=~/.nvm
 export BREW_PREFIX=$(brew --prefix)
 
 # PATH

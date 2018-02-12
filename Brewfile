@@ -1,12 +1,17 @@
+#brew 'nvm'
+brew 'awscli'
 brew 'ag'
 brew 'bash'
 brew 'bash-completion'
+brew 'cask'
+# build youcompleteme
+brew 'cmake'
 brew 'coreutils'
 brew 'ctags'
 brew 'fzf'
 brew 'git'
 brew 'jq'
-brew 'nvm'
+brew 'node'
 brew 'python3'
 brew 'rbenv'
 # connect tmux to the OS X clipboard service
@@ -16,5 +21,5 @@ brew 'vim'
 brew 'yarn'
 
 # gui apps
-cask install 'google-chrome'
-cask install 'docker'
+cask 'google-chrome'
+cask 'docker'

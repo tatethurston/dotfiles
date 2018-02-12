@@ -8,7 +8,6 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
-"Plug 'altercation/vim-colors-solarized'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-abolish'
@@ -20,10 +19,10 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " Colors
-set termguicolors
+"set termguicolors
 syntax enable
 set background=dark
-let g:gruvbox_italic=1
+"let g:gruvbox_italic=1
 silent! colorscheme gruvbox
 
 "file encoding
