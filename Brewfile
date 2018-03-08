@@ -1,21 +1,20 @@
 #brew 'nvm'
-brew 'awscli'
 brew 'ag'
+brew 'awscli'
 brew 'bash'
 brew 'bash-completion'
 brew 'cask'
-# build youcompleteme
-brew 'cmake'
+brew 'cmake' # build youcompleteme
 brew 'coreutils'
 brew 'ctags'
 brew 'fzf'
 brew 'git'
 brew 'jq'
 brew 'node'
+brew 'pssh'
 brew 'python3'
 brew 'rbenv'
-# connect tmux to the OS X clipboard service
-brew 'reattach-to-user-namespace'
+brew 'reattach-to-user-namespace' # connect tmux to the OS X clipboard service
 brew 'tmux'
 brew 'vim'
 brew 'yarn'
