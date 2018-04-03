@@ -37,7 +37,6 @@ set textwidth=79                     " wrap text
 " UI Config
 set number
 set showcmd             " show command in bottom bar
-set cursorline          " highlight current line
 set wildmenu            " visual autocomplete for command menu
 " First tab will complete to longest string and show the the match list, then
 " second tab will complete to first full match and open the wildmenu
