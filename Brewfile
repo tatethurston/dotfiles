@@ -21,5 +21,5 @@ brew 'vim'
 brew 'yarn'
 
 # gui apps
-cask 'google-chrome'
-cask 'docker'
+# cask 'google-chrome'
+# cask 'docker'
