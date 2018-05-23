@@ -23,17 +23,17 @@ fi
 # install plugins
 vim +PlugInstall +qall
 # install youcompleteme
-cd ~/.vim/plugged/YouCompleteMe/
-./install.py --js-completer
-cd -
-
+(
+  cd ~/.vim/plugged/YouCompleteMe/
+  ./install.py --js-completer --go-completer
+)
 
 ### LANGUAGES
 # grab and set latest stable ruby build
 LATEST_RUBY=$(rbenv install -l | grep -e '^\s*\d\.\d\.\d$' | sort | tail -n 1)
 # check if latest installed version == latest available
-if ! rbenv versions | tail -n 1 | grep -q $LATEST_RUBY; then
-  rbenv install $LATEST_RUBY && rbenv local $LATEST_RUBY && gem install bundler
+if ! rbenv versions | tail -n 1 | grep -q "$LATEST_RUBY"; then
+  rbenv install "$LATEST_RUBY" && rbenv local "$LATEST_RUBY" && gem install bundler
 fi
 
 
@@ -45,15 +45,15 @@ if ! grep -q '/usr/local/bin/bash' /etc/shells; then
 fi
 
 # Italic support
-tic xterm-256color-italic.terminfo
+# tic xterm-256color-italic.terminfo
 
 # symlink dotfiles
 ./bin/link
 
 # reload bash_profile
-source ~/.bash_profile
+. ~/.bash_profile
 
 # set terminal theme
-open config.terminal
+open TateLight.terminal
 
 echo 'Environment setup.'

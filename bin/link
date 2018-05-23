@@ -1,26 +1,26 @@
 #!/bin/sh
 
 # This script creates symlinks from the home directory to any named dotfiles in
-# ~/dotfiles/. Any existing dotfiles will be moved to ~/dotfiles/backup/.
+# ~/dotfiles/. Any existing dotfiles will be moved to ~/dotfiles/backup/. This
+# script is idempotent.
 
 dir=~/dotfiles
 backup=$dir/backup
-dotfiles=$(ls | grep -v "$(cat .gitignore)" | grep -v 'README.md')
+dotfiles=$(ls | grep -v "$(cat .gitignore)" | grep -v readme.md)
 
 # create the backup folder if it does not exist
-mkdir -p $backup
+mkdir -p "$backup"
 
 for file in $dotfiles; do
-  old_dotfile=~/.$file
-  new_dotfile=$dir/$file
+  old_dotfile=~/."$file"
+  new_dotfile="$dir"/"$file"
 
-  if ! [ -e $old_dotfile ]; then
-    ln -s $new_dotfile ~/.$file
   # backup any existing dotfiles that aren't from the dotfiles directory
-  elif [ -e $old_dotfile ] && [ "$(readlink $old_dotfile)" != $new_dotfile ]; then
-    mv $old_dotfile $backup
-    ln -s $new_dotfile ~/.$file
+  if [ -e "$old_dotfile" ] && [ "$(readlink "$old_dotfile")" != "$new_dotfile" ]; then
+    mv "$old_dotfile" "$backup"
   fi
+
+  ln -sf "$new_dotfile" ~/."$file"
 done
 
-echo 'symlinked dotfiles'
+echo "Symlinked dotfiles."
