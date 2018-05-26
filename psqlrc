@@ -1,7 +1,5 @@
 \set QUIET 1
 
-\set PROMPT1 '%[%033[1m%][%/]%033[0m%]% # '
-
 \timing
 
 \x auto

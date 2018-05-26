@@ -1,20 +1,20 @@
+#!/usr/bin/bash
+#
 # ======================================
 # Tate's bash profile
 # ======================================
 
-# make files not be read/write/execute by anyone but the owner
-umask 077
+umask 077 # only read/write/execute by owner
 
 # Terminal settings (for remote host only)
 #stty erase ^H
 stty erase ^?
 
 ### Environment variables
-export HISTSIZE=50
 export PAGER=less
 export VISUAL=vim
 export EDITOR=vim
-export BREW_PREFIX=$(brew --prefix)
+BREW_PREFIX=$(brew --prefix)
 
 # PATH
 AWS_CLI_PATH=~/Library/Python/3.6/bin
@@ -38,8 +38,8 @@ load_if_exists() {
 load_if_exists ~/.bashrc
 load_if_exists ~/.bash_profile.local
 load_if_exists ~/.bin/tmuxinator.bash
-load_if_exists $BREW_PREFIX/opt/nvm/nvm.sh
-load_if_exists $BREW_PREFIX/etc/bash_completion
+load_if_exists "$BREW_PREFIX"/opt/nvm/nvm.sh
+load_if_exists "$BREW_PREFIX"/etc/bash_completion
 load_if_exists ~/.fzf.bash
 
 # load rbenv
@@ -61,12 +61,17 @@ alias dc='docker-compose'
 
 ### BETTER DIRECTORY NAVIGATION
 
-# Prepend cd to directory names automatically
-shopt -s autocd 2> /dev/null
-# Correct spelling errors during tab-completion
-shopt -s dirspell 2> /dev/null
-# Correct spelling errors in arguments supplied to cd
-shopt -s cdspell 2> /dev/null
+shopt -s autocd 2> /dev/null   # Prepend cd to directory names automatically
+shopt -s dirspell 2> /dev/null # Correct spelling errors during tab-completion
+shopt -s cdspell 2> /dev/null  # Correct spelling errors in arguments supplied to cd
+
+### History
+export HISTSIZE=50
+export HISTTIMEFORMAT='%Y-%m-%d %H:%M.%S | '
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+shopt -s histappend                      # append to history, don't overwrite it
+export PROMPT_COMMAND="history -a"       # write to history after every command
+
 
 ### Functions
 # Allow docker containers to connect to localhost on macOS
@@ -77,22 +82,17 @@ macos_docker() {
 
 ### Prompt
 
-# Set color variables
-# GREEN="\[\e[0;32m\]"
-# LIGHT_RED="\[\e[1;31m\]"
-# END="\[\e[m\]" # This resets the color / font
-
 # show a '*' if there are unstaged changes and a '+' if there are staged (but uncommitted) changes
-GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWDIRTYSTATE=true
 # Shell prompt with git branch info from '__git_ps1'
-export PS1="λ \W\$(__git_ps1): "
+export PS1="λ ""\\W""\$(__git_ps1): "
 
 # Display welcome message
-echo "Today is `date`."
+echo Today is "$(date)"
 echo
-echo "Current users: `users`"
+echo Current users: "$(users)"
 echo
-echo "System uptime:"; uptime
+echo System uptime: "$(uptime)"
 echo
-echo "Using bash version $BASH_VERSION"
+echo Using bash version "$BASH_VERSION"
 echo

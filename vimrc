@@ -59,11 +59,14 @@ set hlsearch            " highlight matches
 " Leader Shortcuts
 let mapleader=" "
 
-" Autogroups
-augroup configgroup
-    autocmd!
-    autocmd BufWritePre * %s/\s\+$//e " remove trailing space
-augroup END
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " Always show file
 set laststatus=2
