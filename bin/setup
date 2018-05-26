@@ -39,6 +39,9 @@ if ! grep -q '/usr/local/bin/bash' /etc/shells; then
   chsh -s /usr/local/bin/bash
 fi
 
+### SSH
+sudo ln -sf ~/dotfiles/sshd_config /etc/ssh/sshd_config
+
 # Italic support
 # tic xterm-256color-italic.terminfo
 
