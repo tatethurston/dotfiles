@@ -22,11 +22,6 @@ if ! [ -e ~/.vim/autoload/plug.vim ]; then
 fi
 # install plugins
 vim +PlugInstall +qall
-# install youcompleteme
-(
-  cd ~/.vim/plugged/YouCompleteMe/
-  ./install.py --js-completer --go-completer
-)
 
 ### LANGUAGES
 # grab and set latest stable ruby build

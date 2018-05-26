@@ -1,6 +1,6 @@
 " Plugins
 call plug#begin()
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --go-completer' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'godlygeek/tabular'
