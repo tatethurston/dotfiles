@@ -14,7 +14,6 @@ stty erase ^?
 export PAGER=less
 export VISUAL=vim
 export EDITOR=vim
-BREW_PREFIX=$(brew --prefix)
 
 # PATH
 AWS_CLI_PATH=~/Library/Python/3.6/bin
@@ -30,6 +29,10 @@ export PATH="$AWS_CLI_PATH:$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN
 # MANPATH
 export MANPATH="$GNU_COREUTILS_PATH:$MANPATH"
 
+# nvm
+mkdir -p ~/.nvm
+export NVM_DIR=~/.nvm
+
 ### Loaders
 load_if_exists() {
   [ -e "$1" ] && source "$1"
@@ -38,8 +41,8 @@ load_if_exists() {
 load_if_exists ~/.bashrc
 load_if_exists ~/.bash_profile.local
 load_if_exists ~/.bin/tmuxinator.bash
-load_if_exists "$BREW_PREFIX"/opt/nvm/nvm.sh
-load_if_exists "$BREW_PREFIX"/etc/bash_completion
+load_if_exists /usr/local/opt/nvm/nvm.sh
+load_if_exists /usr/local/etc/bash_completion
 load_if_exists ~/.fzf.bash
 
 # load rbenv
