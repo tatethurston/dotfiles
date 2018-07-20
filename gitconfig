@@ -7,6 +7,7 @@
 	default = simple
 [core]
 	excludesfile = ~/.gitignore_global
+	autocrlf = input
 [help]
 	autocorrect = 1
 [diff]

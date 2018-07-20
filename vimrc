@@ -82,7 +82,7 @@ set splitbelow
 set splitright
 
 " remap tab for autocompletion
-inoremap <Tab> <C-N>
+" inoremap <Tab> <C-N>
 
 "remap split pane navigation
 nnoremap <C-J> <C-W><C-J>
