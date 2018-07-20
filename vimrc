@@ -1,6 +1,12 @@
+" Temp
+" https://github.com/vim/vim/issues/3117
+if has('python3')
+  silent! python3 1
+endif
+
 " Plugins
 call plug#begin()
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --go-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --js-completer --go-completer' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'godlygeek/tabular'
@@ -13,6 +19,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'elixir-editors/vim-elixir'
+Plug 'ianks/vim-tsx'
+Plug 'lifepillar/pgsql.vim'
 " fzf
 " Plug '/usr/local/opt/fzf'
 " Plug 'junegunn/fzf.vim'
@@ -89,9 +98,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-"YouCompleteMe settings
-let g:ycm_python_binary_path = 'python3'
 
 " CtrlP settings
 let g:ctrlp_match_window = 'bottom,order:ttb'
