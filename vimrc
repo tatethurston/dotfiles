@@ -9,9 +9,11 @@ call plug#begin()
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --js-completer --go-completer' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
+Plug 'elixir-editors/vim-elixir'
 Plug 'godlygeek/tabular'
 Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
+Plug 'lifepillar/pgsql.vim'
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
 Plug 'mxw/vim-jsx'
@@ -19,9 +21,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'elixir-editors/vim-elixir'
-Plug 'ianks/vim-tsx'
-Plug 'lifepillar/pgsql.vim'
 " fzf
 " Plug '/usr/local/opt/fzf'
 " Plug 'junegunn/fzf.vim'
@@ -76,6 +75,8 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+" https://github.com/leafgarland/typescript-vim/pull/140/files
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
 
 " Always show file
 set laststatus=2
