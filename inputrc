@@ -2,23 +2,31 @@
 # set editing-mode vi
 # set keymap vi-command
 
-# filename completion in a case-insensitive fashion
+# case-insensitive completion
 set completion-ignore-case on
 
 # treat hyphens and underscores as equivalent
 set completion-map-case on
 
-# display all possible matches for an ambiguous pattern at first tab
+# first tab show all possible matches
 set show-all-if-ambiguous on
+# next tab(s) cycle through matches
+TAB: menu-complete
+# shift tab cycles backward
+"\e[Z": menu-complete-backward
 
 # completed names which are symbolic links to directories have a slash appended
 set mark-symlinked-directories on
 
-# match files whose names begin with a ‘.’
+# match files that start with a ‘.’
 set match-hidden-files on
 
 # if this is enabled, attempting completion when the cursor is after the ‘e’  # in ‘Makefile’ will result in ‘Makefile’ rather than ‘Makefilefile’
 set skip-completed-text on
 
 # replace completed text with elipses so only remaining text is displayed
-set completion-prefix-display-length 2
+# set completion-prefix-display-length 2
+
+# display one column with matches
+# set completion-display-width 1
+
