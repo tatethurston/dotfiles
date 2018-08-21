@@ -21,6 +21,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'craigemery/vim-autotag'
 " fzf
 " Plug '/usr/local/opt/fzf'
 " Plug 'junegunn/fzf.vim'

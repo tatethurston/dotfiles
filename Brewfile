@@ -5,7 +5,7 @@ brew 'bash-completion'
 brew 'cask'
 brew 'cmake' # build youcompleteme
 brew 'coreutils'
-brew 'ctags'
+brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 brew 'fzf'
 brew 'git'
 brew 'go'
