@@ -1,4 +1,3 @@
-brew 'ag'
 brew 'awscli'
 brew 'bash'
 brew 'bash-completion'
@@ -16,6 +15,7 @@ brew 'pssh'
 brew 'python3'
 brew 'rbenv'
 brew 'reattach-to-user-namespace' # connect tmux to the OS X clipboard service
+brew 'rg'
 brew 'shellcheck'
 brew 'tmux'
 brew 'vim'

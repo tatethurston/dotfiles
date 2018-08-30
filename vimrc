@@ -9,19 +9,21 @@ call plug#begin()
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --js-completer --go-completer' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
-Plug 'elixir-editors/vim-elixir'
 Plug 'godlygeek/tabular'
-Plug 'kchmck/vim-coffee-script'
-Plug 'leafgarland/typescript-vim'
-Plug 'lifepillar/pgsql.vim'
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'craigemery/vim-autotag'
+" Syntax
+Plug 'elixir-editors/vim-elixir',  { 'for': 'elixir' }
+Plug 'kchmck/vim-coffee-script',   { 'for': 'coffee' }
+Plug 'lifepillar/pgsql.vim',       { 'for': 'sql' }
+Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.jsx'] }
+Plug 'pangloss/vim-javascript',    { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx',                { 'for': ['javascript.jsx', 'typescript.jsx'] }
+
 " fzf
 " Plug '/usr/local/opt/fzf'
 " Plug 'junegunn/fzf.vim'
@@ -105,12 +107,9 @@ nnoremap <C-H> <C-W><C-H>
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 endif
 
 " annoying

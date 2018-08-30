@@ -51,13 +51,12 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### Aliases
 
-alias ls='ls -Fh'
+alias ls='ls -aFh'
 alias mv='mv -i'
 alias r='. ~/.bash_profile'
 alias del='fc -s ls=rm'
 alias h=history
 #alias npm-source='PATH=$(npm bin):$PATH'
-alias ag='ag --pager "less -R"'
 alias ctags='ctags $(git ls-files)'
 #alias bp='~/.bash_profile'
 alias dc='docker-compose'
