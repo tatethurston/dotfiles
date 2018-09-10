@@ -16,7 +16,6 @@ export VISUAL=vim
 export EDITOR=vim
 
 # PATH
-AWS_CLI_PATH=~/Library/Python/3.6/bin
 DIFF_HIGHLIGHT=/usr/local/share/git-core/contrib/diff-highlight
 GNU_COREUTILS_PATH=/usr/local/opt/coreutils/libexec/gnubin
 GO_PATH=~/go/bin
@@ -24,7 +23,7 @@ OPENVPN_PATH=/usr/local/sbin
 RBENV_PATH=~/.rbenv/bin
 YARN_PATH=/usr/local/Cellar/node/8.0.0_1/bin
 
-export PATH="$AWS_CLI_PATH:$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:$PATH"
+export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:$PATH"
 
 # MANPATH
 export MANPATH="$GNU_COREUTILS_PATH:$MANPATH"

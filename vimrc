@@ -16,6 +16,8 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'craigemery/vim-autotag'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 " Syntax
 Plug 'elixir-editors/vim-elixir',  { 'for': 'elixir' }
 Plug 'kchmck/vim-coffee-script',   { 'for': 'coffee' }
@@ -23,67 +25,7 @@ Plug 'lifepillar/pgsql.vim',       { 'for': 'sql' }
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.jsx'] }
 Plug 'pangloss/vim-javascript',    { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx',                { 'for': ['javascript.jsx', 'typescript.jsx'] }
-
-" fzf
-" Plug '/usr/local/opt/fzf'
-" Plug 'junegunn/fzf.vim'
 call plug#end()
-
-" Colors
-"set termguicolors
-syntax enable
-set background=dark
-"let g:gruvbox_italic=1
-silent! colorscheme gruvbox
-
-"file encoding
-set encoding=utf-8     " The encoding displayed.
-set fileencoding=utf-8 " The encoding written to file.
-
-" Spaces & Tabs
-set tabstop=2 shiftwidth=2 expandtab " tabs to 2 spaces
-set autoindent                       " autoindent
-set textwidth=79                     " wrap text
-
-" UI Config
-set number
-set showcmd             " show command in bottom bar
-set wildmenu            " visual autocomplete for command menu
-" First tab will complete to longest string and show the the match list, then
-" second tab will complete to first full match and open the wildmenu
-set wildmode=longest:list,full
-set lazyredraw          " redraw only when we need to.
-set showmatch           " highlight matching [{()}]
-set ruler               " shows row and column number at bottom right corner
-
-" Searching
-" uppercase search string => case sensitive search
-" lowercase search string => case insensitive search.
-set ignorecase
-set smartcase
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
-
-" Folding
-" TODO: maybe?
-
-" Leader Shortcuts
-let mapleader=" "
-
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-" https://github.com/leafgarland/typescript-vim/pull/140/files
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
-
-" Always show file
-set laststatus=2
-set statusline+=%F
 
 " MISC
 set nocompatible
@@ -93,9 +35,6 @@ set clipboard=unnamed      " enable system clipboard for OSX
 " open split panes right and bottom
 set splitbelow
 set splitright
-
-" remap tab for autocompletion
-" inoremap <Tab> <C-N>
 
 "remap split pane navigation
 nnoremap <C-J> <C-W><C-J>
@@ -120,10 +59,59 @@ set noswapfile
 " set directory=~/.vim/swap//
 " set undodir=~/.vim/undo//
 
-function! JSFormat()
-    execute "! prettier --single-quote --write " . bufname("%")
-    execute "! ./node_modules/.bin/eslint --fix " . bufname("%")
-endfunction
+"file encoding
+set encoding=utf-8     " The encoding displayed.
+set fileencoding=utf-8 " The encoding written to file.
 
-nnoremap <buffer> <leader>jf :call JSFormat()<cr>
+" Spaces & Tabs
+set tabstop=2 shiftwidth=2 expandtab " tabs to 2 spaces
+set autoindent                       " autoindent
+set textwidth=79                     " wrap text
 
+" Leader Shortcuts
+let mapleader=" "
+
+" First tab will complete to longest string and show the the match list, then
+" second tab will complete to first full match and open the wildmenu
+set wildmode=longest:list,full
+
+" Searching
+" uppercase search string => case sensitive search
+" lowercase search string => case insensitive search.
+set ignorecase
+set smartcase
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+" https://github.com/leafgarland/typescript-vim/pull/140/files
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
+
+
+" UI
+" Colors
+if exists('$TMUX')
+  set termguicolors
+endif
+syntax enable
+set background=dark
+let g:gruvbox_italic=1
+silent! colorscheme gruvbox
+
+set number
+set showcmd             " show command in bottom bar
+set wildmenu            " visual autocomplete for command menu
+set lazyredraw          " redraw only when we need to.
+set showmatch           " highlight matching [{()}]
+set ruler               " shows row and column number at bottom right corner
+
+" Always show file
+set laststatus=5
+set statusline+=%F
