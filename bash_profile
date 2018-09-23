@@ -42,6 +42,7 @@ load_if_exists ~/.bash_profile.local
 load_if_exists ~/.bin/tmuxinator.bash
 load_if_exists /usr/local/opt/nvm/nvm.sh
 load_if_exists /usr/local/etc/bash_completion
+# need to run this first: /usr/local/opt/fzf/install
 load_if_exists ~/.fzf.bash
 
 # load rbenv
@@ -56,7 +57,6 @@ alias r='. ~/.bash_profile'
 alias del='fc -s ls=rm'
 alias h=history
 #alias npm-source='PATH=$(npm bin):$PATH'
-alias ctags='ctags $(git ls-files)'
 #alias bp='~/.bash_profile'
 alias dc='docker-compose'
 

@@ -102,7 +102,7 @@ if exists('$TMUX')
 endif
 syntax enable
 set background=dark
-let g:gruvbox_italic=1
+"let g:gruvbox_italic=1
 silent! colorscheme gruvbox
 
 set number

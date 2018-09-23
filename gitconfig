@@ -1,7 +1,7 @@
 [init]
   templatedir = ~/.git_template
 [user]
-	email = tate@transcriptic.com
+	email = tatethurston@gmail.com
 	name = Tate
 [push]
 	default = simple
