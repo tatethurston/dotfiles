@@ -22,11 +22,12 @@ GO_PATH=~/go/bin
 OPENVPN_PATH=/usr/local/sbin
 RBENV_PATH=~/.rbenv/bin
 YARN_PATH=/usr/local/Cellar/node/8.0.0_1/bin
-
-export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:$PATH"
+MACOS_PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:/usr/local:/usr/local/bin:$MACOS_PATH"
 
 # MANPATH
-export MANPATH="$GNU_COREUTILS_PATH:$MANPATH"
+MAC_OS_MANPATH="/usr/share/man:/usr/local/share/man"
+export MANPATH="$GNU_COREUTILS_PATH:$MACOS_MANPATH"
 
 # nvm
 mkdir -p ~/.nvm
@@ -59,6 +60,7 @@ alias h=history
 #alias npm-source='PATH=$(npm bin):$PATH'
 #alias bp='~/.bash_profile'
 alias dc='docker-compose'
+alias rg='rg --smart-case'
 
 ### BETTER DIRECTORY NAVIGATION
 

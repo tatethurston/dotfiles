@@ -113,5 +113,5 @@ set showmatch           " highlight matching [{()}]
 set ruler               " shows row and column number at bottom right corner
 
 " Always show file
-set laststatus=5
+set laststatus=2
 set statusline+=%F

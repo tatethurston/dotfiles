@@ -12,6 +12,8 @@ brew upgrade
 # use Brewfile
 brew tap homebrew/bundle
 brew bundle
+# install fzf after homebrew install
+/usr/local/opt/fzf/install
 
 
 ### VIM
@@ -54,7 +56,8 @@ sudo ln -sf ~/dotfiles/sshd_config /etc/ssh/sshd_config
 # disable google chrome swipe
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 
-# set terminal theme
+# Load terminal themes
+open TateDark.terminal
 open TateLight.terminal
 
 echo 'Environment setup.'
