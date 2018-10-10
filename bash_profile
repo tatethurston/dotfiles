@@ -23,7 +23,8 @@ OPENVPN_PATH=/usr/local/sbin
 RBENV_PATH=~/.rbenv/bin
 YARN_PATH=/usr/local/Cellar/node/8.0.0_1/bin
 MACOS_PATH="/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:/usr/local:/usr/local/bin:$MACOS_PATH"
+DOTFILE_PATH=~/dotfiles/bin
+export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:/usr/local:/usr/local/bin:$DOTFILE_PATH:$MACOS_PATH"
 
 # MANPATH
 MAC_OS_MANPATH="/usr/share/man:/usr/local/share/man"
@@ -60,7 +61,11 @@ alias h=history
 #alias npm-source='PATH=$(npm bin):$PATH'
 #alias bp='~/.bash_profile'
 alias dc='docker-compose'
-alias rg='rg --smart-case'
+alias rg='rg --smart-case --hidden'
+alias dark='set-colorscheme TateDark'
+alias light='set-colorscheme TateLight'
+
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
 
 ### BETTER DIRECTORY NAVIGATION
 
