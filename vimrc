@@ -7,7 +7,6 @@ endif
 " Plugins
 call plug#begin()
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --js-completer --go-completer' }
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'godlygeek/tabular'
 Plug 'mattn/emmet-vim'
@@ -41,6 +40,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nnoremap <C-t> :Files<CR>
 
 " CtrlP settings
 let g:ctrlp_match_window = 'bottom,order:ttb'
