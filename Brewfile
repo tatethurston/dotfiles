@@ -22,6 +22,7 @@ brew 'reattach-to-user-namespace' # connect tmux to the OS X clipboard service
 brew 'rg'
 brew 'shellcheck'
 brew 'tmux'
+brew 'tree'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD', 'without-doc']
 brew 'vim'
 brew 'yarn'

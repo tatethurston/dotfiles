@@ -28,7 +28,7 @@ export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_P
 
 # MANPATH
 MAC_OS_MANPATH="/usr/share/man:/usr/local/share/man"
-export MANPATH="$GNU_COREUTILS_PATH:$MACOS_MANPATH"
+export MANPATH="$GNU_COREUTILS_PATH:$MAC_OS_MANPATH"
 
 # nvm
 mkdir -p ~/.nvm
@@ -47,8 +47,15 @@ load_if_exists /usr/local/etc/bash_completion
 # need to run this first: /usr/local/opt/fzf/install
 load_if_exists ~/.fzf.bash
 
+# https://docs.brew.sh/Shell-Completion
+if type brew 2&>/dev/null; then
+  for completion_file in "$(brew --prefix)"/etc/bash_completion.d/*; do
+    source "$completion_file"
+  done
+fi
+
 # load rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if rbenv -v > /dev/null; then eval "$(rbenv init -)"; fi
 
 
 ### Aliases
