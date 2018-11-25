@@ -68,11 +68,12 @@ alias h=history
 #alias npm-source='PATH=$(npm bin):$PATH'
 #alias bp='~/.bash_profile'
 alias dc='docker-compose'
-alias rg='rg --smart-case --hidden'
+alias rg='rg --smart-case --hidden --glob "!.git/*"'
 alias dark='set-colorscheme TateDark'
 alias light='set-colorscheme TateLight'
 
-export FZF_DEFAULT_COMMAND="rg --files --hidden"
+export FZF_DEFAULT_COMMAND="rg --files"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 ### BETTER DIRECTORY NAVIGATION
 
