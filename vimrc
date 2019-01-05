@@ -6,7 +6,7 @@ endif
 
 " Plugins
 call plug#begin()
-Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --js-completer --go-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --ts-completer --go-completer' }
 Plug 'edkolev/tmuxline.vim'
 Plug 'godlygeek/tabular'
 Plug 'mattn/emmet-vim'
