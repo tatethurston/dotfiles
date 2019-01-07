@@ -25,7 +25,6 @@ brew 'tmux'
 brew 'tree'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD', 'without-doc']
 brew 'vim'
-brew 'yarn'
 
 # gui apps
 cask 'google-chrome'

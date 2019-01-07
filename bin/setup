@@ -15,6 +15,18 @@ brew bundle
 # install fzf after homebrew install
 /usr/local/opt/fzf/install
 
+### LANGUAGES
+# Typescript
+# This is necessary for YCM JS/Typescript completion
+nvm install lts/*
+npm install -g typescript
+
+# grab and set latest stable ruby build
+LATEST_RUBY=$(rbenv install -l | grep -e '^\s*\d\.\d\.\d$' | sort | tail -n 1)
+# check if latest installed version == latest available
+if ! rbenv versions | tail -n 1 | grep -q "$LATEST_RUBY"; then
+  rbenv install "$LATEST_RUBY" && rbenv local "$LATEST_RUBY" && gem install bundler
+fi
 
 ### VIM
 # set up plug
@@ -24,15 +36,6 @@ if ! [ -e ~/.vim/autoload/plug.vim ]; then
 fi
 # install plugins
 vim +PlugInstall +qall
-
-### LANGUAGES
-# grab and set latest stable ruby build
-LATEST_RUBY=$(rbenv install -l | grep -e '^\s*\d\.\d\.\d$' | sort | tail -n 1)
-# check if latest installed version == latest available
-if ! rbenv versions | tail -n 1 | grep -q "$LATEST_RUBY"; then
-  rbenv install "$LATEST_RUBY" && rbenv local "$LATEST_RUBY" && gem install bundler
-fi
-
 
 ### MISC
 # Add the new shell installed by homebrew to the list of allowed shells and change to it
