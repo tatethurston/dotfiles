@@ -68,9 +68,10 @@ alias h=history
 #alias npm-source='PATH=$(npm bin):$PATH'
 #alias bp='~/.bash_profile'
 alias dc='docker-compose'
-alias rg='rg --smart-case --hidden --glob "!.git/*"'
+alias rg='rg --smart-case --hidden --glob "!.git/*" --glob "!vendor"'
 alias dark='set-colorscheme TateDark'
 alias light='set-colorscheme TateLight'
+alias be='bundle exec'
 
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
