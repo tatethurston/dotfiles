@@ -60,10 +60,10 @@ if rbenv -v > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### Aliases
 
+alias -- -="cd .."
 alias ls='ls -aFh'
 alias mv='mv -i'
 alias r='. ~/.bash_profile'
-alias del='fc -s ls=rm'
 alias h=history
 #alias npm-source='PATH=$(npm bin):$PATH'
 #alias bp='~/.bash_profile'
@@ -91,8 +91,8 @@ export PROMPT_COMMAND="history -a"       # write to history after every command
 
 
 ### Functions
-# Allow docker containers to connect to localhost on macOS
 macos_docker() {
+  # Allow docker containers to connect to localhost on macOS
   sudo ifconfig lo0 alias 10.200.10.1/24
   echo "Created lo0 alias 10.200.10.1/24"
 }

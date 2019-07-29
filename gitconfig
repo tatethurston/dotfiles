@@ -25,12 +25,11 @@
 [include]
   path = ~/.gitconfig.local
 [alias]
-	co = checkout
+	co = "! ~/dotfiles/scripts/git/checkout.sh"
 	br = branch
 	ci = commit
 	st = status
-  cleanup = "!git branch --merged | egrep -v master | xargs git branch -d"
-
+  cleanup = "!git branch | grep -v master | xargs git branch -D"
 [merge]
 	conflictstyle = diff3
 	tool = opendiff

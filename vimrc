@@ -94,6 +94,7 @@ endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " https://github.com/leafgarland/typescript-vim/pull/140/files
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
+autocmd BufNewFile,BufRead *.gs  set syntax=javascript
 
 
 " UI
