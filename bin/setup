@@ -3,7 +3,7 @@
 set -eou pipefail
 
 # Cloudflare DNS
-sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1
+networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1
 
 ### HOMEBREW
 if ! command -v brew >/dev/null 2>&1; then
