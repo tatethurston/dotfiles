@@ -19,13 +19,14 @@ brew 'pssh'
 brew 'python'
 brew 'rbenv'
 brew 'reattach-to-user-namespace' # connect tmux to the OS X clipboard service
+brew 'rename'
 brew 'rg'
 brew 'shellcheck'
 brew 'tmux'
 brew 'tree'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD', 'without-doc']
 brew 'vim'
-
+brew 'wifi-password'
 # gui apps
 cask 'google-chrome'
 cask 'docker'
