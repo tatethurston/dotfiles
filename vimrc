@@ -1,25 +1,16 @@
-" Temp
-" https://github.com/vim/vim/issues/3117
-if has('python3')
-  silent! python3 1
-endif
-
 " Plugins
 call plug#begin()
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --ts-completer --go-completer' }
-Plug 'edkolev/tmuxline.vim'
 Plug 'godlygeek/tabular'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'craigemery/vim-autotag'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 " Syntax
 Plug 'elixir-editors/vim-elixir',  { 'for': 'elixir' }
-Plug 'kchmck/vim-coffee-script',   { 'for': 'coffee' }
 Plug 'lifepillar/pgsql.vim',       { 'for': 'sql' }
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.jsx'] }
 Plug 'pangloss/vim-javascript',    { 'for': ['javascript', 'javascript.jsx'] }

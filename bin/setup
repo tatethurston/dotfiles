@@ -2,9 +2,6 @@
 
 set -eou pipefail
 
-# Cloudflare DNS
-networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1
-
 ### HOMEBREW
 if ! command -v brew >/dev/null 2>&1; then
   # fetch + install Homebrew
@@ -22,7 +19,7 @@ brew bundle
 # Typescript
 # This is necessary for YCM JS/Typescript completion
 nvm install lts/*
-npm install -g typescript
+yarn global add typescript
 
 # grab and set latest stable ruby build
 LATEST_RUBY=$(rbenv install -l | grep -e '^\s*\d\.\d\.\d$' | sort | tail -n 1)
@@ -49,9 +46,6 @@ fi
 
 ### SSH
 sudo ln -sf ~/dotfiles/sshd_config /etc/ssh/sshd_config
-
-# Italic support
-# tic xterm-256color-italic.terminfo
 
 # symlink dotfiles
 ./bin/link
