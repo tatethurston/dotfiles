@@ -15,6 +15,7 @@ Plug 'lifepillar/pgsql.vim',       { 'for': 'sql' }
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.jsx'] }
 Plug 'pangloss/vim-javascript',    { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx',                { 'for': ['javascript.jsx', 'typescript.jsx'] }
+Plug 'kopischke/vim-fetch'
 call plug#end()
 
 " MISC
@@ -108,3 +109,12 @@ set ruler               " shows row and column number at bottom right corner
 " Always show file
 set laststatus=2
 set statusline+=%F
+
+" YCM
+let g:ycm_language_server = [
+  \   {
+  \     'name': 'ruby',
+  \     'cmdline': [ expand( '$HOME/.rbenv/shims/solargraph' ), 'stdio' ],
+  \     'filetypes': [ 'ruby' ],
+  \   },
+  \ ]

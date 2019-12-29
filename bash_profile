@@ -31,8 +31,8 @@ MAC_OS_MANPATH="/usr/share/man:/usr/local/share/man"
 export MANPATH="$GNU_COREUTILS_PATH:$MAC_OS_MANPATH"
 
 # nvm
-mkdir -p ~/.nvm
 export NVM_DIR=~/.nvm
+export NVM_SH=/usr/local/opt/nvm/nvm.sh
 
 ### Loaders
 load_if_exists() {
@@ -42,7 +42,7 @@ load_if_exists() {
 load_if_exists ~/.bashrc
 load_if_exists ~/.bash_profile.local
 load_if_exists ~/.bin/tmuxinator.bash
-load_if_exists /usr/local/opt/nvm/nvm.sh
+load_if_exists $NVM_SH
 load_if_exists /usr/local/etc/bash_completion
 # need to run this first: /usr/local/opt/fzf/install
 load_if_exists ~/.fzf.bash
