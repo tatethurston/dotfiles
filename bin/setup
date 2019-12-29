@@ -23,6 +23,7 @@ mkdir -p ~/.nvm
 # YCM JS/Typescript completion
 nvm install lts/*
 yarn global add typescript
+yarn global add prettier
 
 # grab and set latest stable ruby build
 LATEST_RUBY=$(rbenv install -l | grep -e '^\s*\d\.\d\.\d$' | sort | tail -n 1)
