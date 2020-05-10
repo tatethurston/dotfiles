@@ -7,6 +7,7 @@ end
 brew 'awscli'
 brew 'bash'
 brew 'bash-completion'
+brew 'bats-core'
 brew 'cask'
 brew 'cmake' # build youcompleteme
 brew 'coreutils'

@@ -39,6 +39,10 @@ load_if_exists() {
   [ -e "$1" ] && source "$1"
 }
 
+command_exists() {
+  command -v "$1" > /dev/null
+}
+
 load_if_exists ~/.bashrc
 load_if_exists ~/.bash_profile.local
 load_if_exists ~/.bin/tmuxinator.bash
@@ -48,15 +52,17 @@ load_if_exists /usr/local/etc/bash_completion
 load_if_exists ~/.fzf.bash
 
 # https://docs.brew.sh/Shell-Completion
-if type brew 2&>/dev/null; then
-  for completion_file in "$(brew --prefix)"/etc/bash_completion.d/*; do
-    source "$completion_file"
-  done
+if command_exists brew; then
+  load_if_exists "$(brew --prefix)"/etc/profile.d/bash_completion.sh
 fi
 
 # load rbenv
-if rbenv -v > /dev/null; then eval "$(rbenv init -)"; fi
+if command_exists rbenv; then eval "$(rbenv init -)"; fi
 
+# start tmux by default
+if command_exists tmux && [ -z "$TMUX" ]; then
+  tmux attach -t main || tmux new -s main
+fi
 
 ### Aliases
 

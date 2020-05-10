@@ -1,8 +1,8 @@
 " Plugins
 call plug#begin()
-Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --ts-completer --go-completer' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'godlygeek/tabular'
-" Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
@@ -15,6 +15,8 @@ Plug 'lifepillar/pgsql.vim',       { 'for': 'sql' }
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.jsx'] }
 Plug 'pangloss/vim-javascript',    { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx',                { 'for': ['javascript.jsx', 'typescript.jsx'] }
+" vim-fetch:
+" vim path/to/file.ext:12:3 in the shell to open file.ext on line 12 at column 3
 Plug 'kopischke/vim-fetch'
 call plug#end()
 
@@ -109,12 +111,3 @@ set ruler               " shows row and column number at bottom right corner
 " Always show file
 set laststatus=2
 set statusline+=%F
-
-" YCM
-let g:ycm_language_server = [
-  \   {
-  \     'name': 'ruby',
-  \     'cmdline': [ expand( '$HOME/.rbenv/shims/solargraph' ), 'stdio' ],
-  \     'filetypes': [ 'ruby' ],
-  \   },
-  \ ]
