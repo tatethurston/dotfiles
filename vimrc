@@ -1,6 +1,8 @@
 " Plugins
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-tsserver'
+Plug 'neoclide/coc-json'
 Plug 'godlygeek/tabular'
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'

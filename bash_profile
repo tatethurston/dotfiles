@@ -78,6 +78,7 @@ alias rg='rg --smart-case --hidden --glob "!.git/*" --glob "!vendor"'
 alias dark='set-colorscheme TateDark'
 alias light='set-colorscheme TateLight'
 alias be='bundle exec'
+alias tree="tree -a -I 'node_modules|.git'"
 
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -101,6 +102,12 @@ macos_docker() {
   # Allow docker containers to connect to localhost on macOS
   sudo ifconfig lo0 alias 10.200.10.1/24
   echo "Created lo0 alias 10.200.10.1/24"
+}
+
+dotenv() {
+  set -a
+  load_if_exists "$1"
+  set +a
 }
 
 ### Prompt
