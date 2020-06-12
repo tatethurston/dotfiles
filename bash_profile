@@ -15,6 +15,9 @@ export PAGER=less
 export VISUAL=vim
 export EDITOR=vim
 
+export PGUSER=postgres
+export PGHOST=localhost
+
 # PATH
 DIFF_HIGHLIGHT=/usr/local/share/git-core/contrib/diff-highlight
 GNU_COREUTILS_PATH=/usr/local/opt/coreutils/libexec/gnubin
@@ -78,7 +81,7 @@ alias rg='rg --smart-case --hidden --glob "!.git/*" --glob "!vendor"'
 alias dark='set-colorscheme TateDark'
 alias light='set-colorscheme TateLight'
 alias be='bundle exec'
-alias tree="tree -a -I 'node_modules|.git'"
+alias tree="tree -a -I 'node_modules|.git|dist|.DS_Store'"
 
 alias lsr="cd ~/tachyon/native-apps/laser-array"
 alias sky="cd ~/tachyon/apps/sky-map"
