@@ -30,10 +30,6 @@ export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_P
 MAC_OS_MANPATH="/usr/share/man:/usr/local/share/man"
 export MANPATH="$GNU_COREUTILS_PATH:$MAC_OS_MANPATH"
 
-# nvm
-export NVM_DIR=~/.nvm
-export NVM_SH=/usr/local/opt/nvm/nvm.sh
-
 ### Loaders
 load_if_exists() {
   [ -e "$1" ] && source "$1"
@@ -46,10 +42,14 @@ command_exists() {
 load_if_exists ~/.bashrc
 load_if_exists ~/.bash_profile.local
 load_if_exists ~/.bin/tmuxinator.bash
-load_if_exists $NVM_SH
 load_if_exists /usr/local/etc/bash_completion
 # need to run this first: /usr/local/opt/fzf/install
 load_if_exists ~/.fzf.bash
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # https://docs.brew.sh/Shell-Completion
 if command_exists brew; then
@@ -79,6 +79,13 @@ alias dark='set-colorscheme TateDark'
 alias light='set-colorscheme TateLight'
 alias be='bundle exec'
 alias tree="tree -a -I 'node_modules|.git'"
+
+alias lsr="cd ~/tachyon/native-apps/laser-array"
+alias sky="cd ~/tachyon/apps/sky-map"
+alias star="cd ~/tachyon/apps/starshot"
+alias tach="cd ~/tachyon"
+alias tom="cd ~/tachyon/apps/tomorrow"
+alias val="cd ~/tachyon/apps/valence"
 
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

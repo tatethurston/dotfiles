@@ -11,7 +11,8 @@ brew update
 brew upgrade
 # use Brewfile
 brew tap homebrew/bundle
-brew bundle
+# May fail if some casks are already installed
+brew bundle || true
 # install fzf after homebrew install
 /usr/local/opt/fzf/install
 

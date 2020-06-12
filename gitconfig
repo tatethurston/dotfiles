@@ -1,14 +1,14 @@
 [init]
   templatedir = ~/.git_template
 [user]
-	email = tate@transcriptic.com
-	name = Tate
+	email = tatthurs@twitch.tv
+	name = Tate Thurston
 [push]
 	default = simple
 [core]
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
-	ignorecase = false
+	ignorecase = true
 [help]
 	autocorrect = 1
 [diff]
@@ -34,3 +34,5 @@
 [merge]
 	conflictstyle = diff3
 	tool = opendiff
+[mergetool]
+	keepBackup = false
