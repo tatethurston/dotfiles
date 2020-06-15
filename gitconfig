@@ -1,7 +1,7 @@
 [init]
   templatedir = ~/.git_template
 [user]
-	email = tatthurs@twitch.tv
+	email = tatethurston@gmail.com
 	name = Tate Thurston
 [push]
 	default = simple
