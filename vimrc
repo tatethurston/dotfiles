@@ -12,11 +12,15 @@ Plug 'tpope/vim-surround'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 " Syntax
-Plug 'elixir-editors/vim-elixir',  { 'for': 'elixir' }
-Plug 'lifepillar/pgsql.vim',       { 'for': 'sql' }
-Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.jsx'] }
-Plug 'pangloss/vim-javascript',    { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mxw/vim-jsx',                { 'for': ['javascript.jsx', 'typescript.jsx'] }
+Plug 'elixir-editors/vim-elixir',               { 'for': 'elixir' }
+Plug 'lifepillar/pgsql.vim',                    { 'for': 'sql' }
+Plug 'pangloss/vim-javascript',                 { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'leafgarland/typescript-vim',              { 'for': ['typescript', 'typescript.jsx'] }
+Plug 'mxw/vim-jsx',                             { 'for': ['javascript.jsx', 'typescript.jsx'] }
+" unsure whether I like this enough to keep
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main', 'for': ['javascript.jsx', 'typescript.jsx'] }
+" unsure whether I like this enough to keep
+" Plug 'jparise/vim-graphql',                     { 'for': ['javascript.jsx', 'typescript.jsx'] }
 " vim-fetch:
 " vim path/to/file.ext:12:3 in the shell to open file.ext on line 12 at column 3
 Plug 'kopischke/vim-fetch'
@@ -90,7 +94,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " https://github.com/leafgarland/typescript-vim/pull/140/files
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
 autocmd BufNewFile,BufRead *.gs  set syntax=javascript
-
+autocmd BufNewFile,BufRead *.ejs set filetype=html
 
 " UI
 " Colors

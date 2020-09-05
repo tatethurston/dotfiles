@@ -5,6 +5,7 @@
 # ======================================
 
 umask 077 # only read/write/execute by owner
+# umask 022 # macOS default
 
 # Terminal settings (for remote host only)
 #stty erase ^H

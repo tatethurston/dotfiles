@@ -36,3 +36,5 @@
 	tool = opendiff
 [mergetool]
 	keepBackup = false
+[pull]
+	ff = only
