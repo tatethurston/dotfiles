@@ -1,5 +1,13 @@
-#!/usr/bin/osascript
+#!/usr/bin/env osascript -l JavaScript
 
-on run argv
-    tell application "Terminal" to set current settings of front window to first settings set whose name is (item 1 of argv)
-end run
+// import "@jxa/global-type";
+// https://github.com/JXA-userland/JXA
+
+function run([ theme ]) {
+  const terminal = Application("Terminal");
+  const tab = terminal.windows[0].selectedTab;
+  tab.currentSettings = terminal.settingsSets
+    .whose({
+      name: { _contains: theme },
+    })[0];
+}
