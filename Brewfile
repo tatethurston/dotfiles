@@ -1,7 +1,7 @@
 # vim: syntax=ruby filetype=ruby
 
 def installed?(app)
-  system "brew cask list | grep #{app} > /dev/null"
+  system "brew list --cask | grep #{app} > /dev/null"
 end
 
 tap "heroku/brew"
@@ -9,6 +9,7 @@ tap "heroku/brew"
 brew 'awscli'
 brew 'bash'
 brew 'bash-completion@2'
+brew 'bat'
 brew 'bats-core'
 brew 'cask'
 brew 'coreutils'
@@ -32,6 +33,7 @@ brew 'vim'
 brew 'wifi-password'
 brew 'yarn'
 
+# cask 'amethyst' unless installed?('amethyst')
 cask 'docker' unless installed?('docker')
+# cask 'maccy' unless installed?('maccy')
 cask 'ngrok' unless installed?('ngrok')
-

@@ -112,6 +112,11 @@ dotenv() {
   set +a
 }
 
+# wip https://github.com/sharkdp/bat/pull/940
+batdiff() {
+    git diff --name-only --diff-filter=d | xargs bat --diff
+}
+
 ### Prompt
 
 # show a '*' if there are unstaged changes and a '+' if there are staged (but uncommitted) changes
