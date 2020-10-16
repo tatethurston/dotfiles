@@ -3,6 +3,7 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile'}
 Plug 'godlygeek/tabular'
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'

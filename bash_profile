@@ -99,10 +99,9 @@ shopt -s cdspell 2> /dev/null  # Correct spelling errors in arguments supplied t
 ### History
 export HISTSIZE=50
 export HISTTIMEFORMAT='%Y-%m-%d %H:%M.%S | '
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
-shopt -s histappend                      # append to history, don't overwrite it
-export PROMPT_COMMAND="history -a"       # write to history after every command
-
+export HISTCONTROL=ignoredups:erasedups # no duplicate entries
+shopt -s histappend                     # append to history, don't overwrite it
+export PROMPT_COMMAND="history -a"      # write to history after every command
 
 ### Functions
 
@@ -114,7 +113,7 @@ dotenv() {
 
 # wip https://github.com/sharkdp/bat/pull/940
 batdiff() {
-    git diff --name-only --diff-filter=d | xargs bat --diff
+  git diff --name-only --diff-filter=d | xargs bat --diff
 }
 
 ### Prompt
