@@ -44,20 +44,23 @@ command_exists() {
 }
 
 load_if_exists ~/.bashrc
-load_if_exists ~/.bash_profile.local
 load_if_exists ~/.bin/tmuxinator.bash
-load_if_exists /usr/local/etc/bash_completion
 # need to run this first: /usr/local/opt/fzf/install
 load_if_exists ~/.fzf.bash
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+load_if_exists "$NVM_DIR/nvm.sh"
+load_if_exists "$NVM_DIR/bash_completion"
 
 # https://docs.brew.sh/Shell-Completion
 if command_exists brew; then
-  load_if_exists "$(brew --prefix)"/etc/profile.d/bash_completion.sh
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  load_if_exists "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+
+  for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d"*; do
+    load_if_exists "$COMPLETION"
+  done
 fi
 
 # load rbenv
@@ -84,13 +87,6 @@ alias light='set-colorscheme TateLight'
 alias be='bundle exec'
 alias tree="tree -a -I 'node_modules|.git|dist|.DS_Store'"
 
-alias lsr="cd ~/tachyon/native-apps/laser-array"
-alias sky="cd ~/tachyon/apps/sky-map"
-alias star="cd ~/tachyon/apps/starshot"
-alias tach="cd ~/tachyon"
-alias tom="cd ~/tachyon/apps/tomorrow"
-alias val="cd ~/tachyon/apps/valence"
-
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -109,11 +105,6 @@ export PROMPT_COMMAND="history -a"       # write to history after every command
 
 
 ### Functions
-macos_docker() {
-  # Allow docker containers to connect to localhost on macOS
-  sudo ifconfig lo0 alias 10.200.10.1/24
-  echo "Created lo0 alias 10.200.10.1/24"
-}
 
 dotenv() {
   set -a
@@ -137,3 +128,5 @@ echo System uptime: "$(uptime)"
 echo
 echo Using bash version "$BASH_VERSION"
 echo
+
+load_if_exists ~/.bash_profile.local

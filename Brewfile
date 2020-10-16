@@ -8,7 +8,7 @@ tap "heroku/brew"
 
 brew 'awscli'
 brew 'bash'
-brew 'bash-completion'
+brew 'bash-completion@2'
 brew 'bats-core'
 brew 'cask'
 brew 'coreutils'
