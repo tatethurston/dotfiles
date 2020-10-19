@@ -1,0 +1,1 @@
+import "@jxa/global-type";
