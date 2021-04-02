@@ -26,14 +26,16 @@
 	ci = commit
 	st = status
   cleanup = "!git branch | grep -v master | xargs git branch -D"
+  remain = "!git checkout main; git pull; git checkout -; git rebase main"
 [merge]
 	conflictstyle = diff3
+  tool = opendiff
 [mergetool]
 	keepBackup = false
 [pull]
 	ff = only
 [difftool]
-  tool = vimdiff3
-	prompt = false
-  # Be able to abort all diffs with `:cq` or `:cquit`
-  trustExitCode = true
+  # tool = opendiff
+	# prompt = false
+  # # Be able to abort all diffs with `:cq` or `:cquit`
+  # trustExitCode = true

@@ -40,7 +40,7 @@ load_if_exists() {
 }
 
 command_exists() {
-  command -v "$1" > /dev/null
+  command -v "$1" >/dev/null
 }
 
 load_if_exists ~/.bashrc
@@ -58,7 +58,7 @@ if command_exists brew; then
   HOMEBREW_PREFIX="$(brew --prefix)"
   load_if_exists "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
 
-  for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d"*; do
+  for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
     load_if_exists "$COMPLETION"
   done
 fi
@@ -86,15 +86,16 @@ alias dark='set-colorscheme TateDark'
 alias light='set-colorscheme TateLight'
 alias be='bundle exec'
 alias tree="tree -a -I 'node_modules|.git|dist|.DS_Store'"
+alias g='git'
 
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 ### BETTER DIRECTORY NAVIGATION
 
-shopt -s autocd 2> /dev/null   # Prepend cd to directory names automatically
-shopt -s dirspell 2> /dev/null # Correct spelling errors during tab-completion
-shopt -s cdspell 2> /dev/null  # Correct spelling errors in arguments supplied to cd
+shopt -s autocd 2>/dev/null   # Prepend cd to directory names automatically
+shopt -s dirspell 2>/dev/null # Correct spelling errors during tab-completion
+shopt -s cdspell 2>/dev/null  # Correct spelling errors in arguments supplied to cd
 
 ### History
 export HISTSIZE=50
