@@ -40,7 +40,7 @@ load_if_exists() {
 }
 
 command_exists() {
-  command -v "$1" >/dev/null
+  [ -x "$(command -v "$1")" ]
 }
 
 load_if_exists ~/.bashrc
