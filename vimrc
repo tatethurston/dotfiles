@@ -5,6 +5,8 @@ Plug 'godlygeek/tabular'
 Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'suy/vim-context-commentstring'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug '/usr/local/opt/fzf'
@@ -142,7 +144,7 @@ else
   set signcolumn=yes
 endif
 
-let g:coc_global_extensions = ['coc-diagnostic', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-diagnostic', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-emmet']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
