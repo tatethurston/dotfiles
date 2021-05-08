@@ -16,10 +16,6 @@ Plug 'lifepillar/pgsql.vim',                    { 'for': 'sql' }
 Plug 'pangloss/vim-javascript',                 { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'leafgarland/typescript-vim',              { 'for': ['typescript', 'typescript.jsx'] }
 Plug 'mxw/vim-jsx',                             { 'for': ['javascript.jsx', 'typescript.jsx'] }
-" unsure whether I like this enough to keep
-" Plug 'styled-components/vim-styled-components', { 'branch': 'main', 'for': ['javascript.jsx', 'typescript.jsx'] }
-" unsure whether I like this enough to keep
-" Plug 'jparise/vim-graphql',                     { 'for': ['javascript.jsx', 'typescript.jsx'] }
 " vim-fetch:
 " vim path/to/file.ext:12:3 in the shell to open file.ext on line 12 at column 3
 Plug 'kopischke/vim-fetch'
@@ -42,24 +38,10 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap <C-t> :Files<CR>
 
-" CtrlP settings
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-if executable('rg')
-  set grepprg=rg\ --color=never
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-endif
-
 " annoying
 set noswapfile
-" put swap, backup and undo files in this location instead of the working directory
-" double trailing slashes tells vim to avoid name collisions
-" set backupdir=~/.vim/backup//
-" set directory=~/.vim/swap//
-" set undodir=~/.vim/undo//
 
-"file encoding
+" file encoding
 set encoding=utf-8     " The encoding displayed.
 set fileencoding=utf-8 " The encoding written to file.
 
@@ -82,17 +64,9 @@ set smartcase
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " https://github.com/leafgarland/typescript-vim/pull/140/files
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
-autocmd BufNewFile,BufRead *.gs  set syntax=javascript
+autocmd BufNewFile,BufRead *.gs  set filetype=javascript
 autocmd BufNewFile,BufRead *.ejs set filetype=html
 
 " UI
@@ -102,11 +76,10 @@ if exists('$TMUX')
 endif
 syntax enable
 set background=dark
-"let g:gruvbox_italic=1
+" let g:gruvbox_italic=1
 silent! colorscheme gruvbox
 
 set number
-set showcmd             " show command in bottom bar
 set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
@@ -136,12 +109,7 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=number
 
 let g:coc_global_extensions = ['coc-diagnostic', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-emmet']
 
