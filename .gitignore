@@ -1,4 +1,5 @@
 backup/
 vim/autoload/
 vim/plugged/
+vim/plugin/
 vim/.netrwhist
