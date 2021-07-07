@@ -13,6 +13,8 @@ brew upgrade
 brew tap homebrew/bundle
 # May fail if some casks are already installed
 brew bundle || true
+# Start autoupdating either once every interval hours or once every 24 hours
+brew autoupdate start --upgrade --cleanup --enable-notification
 # install fzf after homebrew install
 /usr/local/opt/fzf/install
 
