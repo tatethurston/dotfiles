@@ -43,6 +43,16 @@ command_exists() {
   [ -x "$(command -v "$1")" ]
 }
 
+# https://osxdaily.com/2007/01/18/airport-the-little-known-command-line-wireless-utility/
+link_airport() {
+  sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
+}
+
+wifi_signal() {
+  command_exists airport || link_airport
+  airport -s | sort -k 3
+}
+
 load_if_exists ~/.bashrc
 load_if_exists ~/.bin/tmuxinator.bash
 # need to run this first: /usr/local/opt/fzf/install
