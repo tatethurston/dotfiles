@@ -44,12 +44,12 @@ command_exists() {
 }
 
 # https://osxdaily.com/2007/01/18/airport-the-little-known-command-line-wireless-utility/
-link_airport() {
+link-airport() {
   sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
 }
 
-wifi_signal() {
-  command_exists airport || link_airport
+wifi-signal() {
+  command_exists airport || link-airport
   airport -s | sort -k 3
 }
 
