@@ -6,6 +6,7 @@
 	name = Tate Thurston
 [push]
 	default = simple
+  autoSetupRemote = true
 [core]
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
