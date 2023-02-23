@@ -4,3 +4,5 @@ set -o ignoreeof
 # Prevent file overwrite on stdout redirection
 # Use `>|` to force redirection to an existing file
 set -o noclobber
+
+. "/opt/homebrew/opt/asdf/libexec/asdf.sh"

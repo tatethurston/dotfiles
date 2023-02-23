@@ -4,8 +4,7 @@
 # Tate's bash profile
 # ======================================
 
-umask 077 # only read/write/execute by owner
-# umask 022 # macOS default
+umask 022 # macOS default
 
 # Terminal settings (for remote host only)
 #stty erase ^H
@@ -19,19 +18,21 @@ export EDITOR=vim
 export PGUSER=postgres
 export PGHOST=localhost
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # PATH
-DIFF_HIGHLIGHT=/usr/local/share/git-core/contrib/diff-highlight
-GNU_COREUTILS_PATH=/usr/local/opt/coreutils/libexec/gnubin
+DIFF_HIGHLIGHT="$HOMEBREW_REPOSITORY"/share/git-core/contrib/diff-highlight
+GNU_COREUTILS_PATH="$HOMEBREW_REPOSITORY"/opt/coreutils/libexec/gnubin
 GO_PATH=~/go/bin
-OPENVPN_PATH=/usr/local/sbin
+OPENVPN_PATH="$HOMEBREW_REPOSITORY"/sbin
 RBENV_PATH=~/.rbenv/bin
-YARN_PATH=/usr/local/Cellar/node/8.0.0_1/bin
+YARN_PATH="$HOMEBREW_REPOSITORY"/Cellar/node/8.0.0_1/bin
 MACOS_PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 DOTFILE_PATH=~/dotfiles/bin
-export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:/usr/local:/usr/local/bin:$DOTFILE_PATH:$MACOS_PATH"
+export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:$HOMEBREW_REPOSITORY:$HOMEBREW_REPOSITORY/bin:$DOTFILE_PATH:$MACOS_PATH"
 
 # MANPATH
-MAC_OS_MANPATH="/usr/share/man:/usr/local/share/man"
+MAC_OS_MANPATH="/usr/share/man:/$HOMEBREW_REPOSITORY/share/man"
 export MANPATH="$GNU_COREUTILS_PATH:$MAC_OS_MANPATH"
 
 ### Loaders
@@ -45,7 +46,7 @@ command_exists() {
 
 # https://osxdaily.com/2007/01/18/airport-the-little-known-command-line-wireless-utility/
 link-airport() {
-  sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
+  sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /"$HOMEBREW_REPOSITORY"/bin/airport
 }
 
 wifi-signal() {
@@ -55,20 +56,15 @@ wifi-signal() {
 
 load_if_exists ~/.bashrc
 load_if_exists ~/.bin/tmuxinator.bash
-# need to run this first: /usr/local/opt/fzf/install
+# need to run this first: "$HOMEBREW_REPOSITORY"/opt/fzf/install
 load_if_exists ~/.fzf.bash
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-load_if_exists "$NVM_DIR/nvm.sh"
-load_if_exists "$NVM_DIR/bash_completion"
+load_if_exists "$(brew --prefix asdf)/libexec/asdf.sh"
 
 # https://docs.brew.sh/Shell-Completion
 if command_exists brew; then
-  HOMEBREW_PREFIX="$(brew --prefix)"
-  load_if_exists "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  load_if_exists "$HOMEBREW_REPOSITORY/etc/profile.d/bash_completion.sh"
 
-  for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+  for COMPLETION in "$HOMEBREW_REPOSITORY/etc/bash_completion.d/"*; do
     load_if_exists "$COMPLETION"
   done
 fi
@@ -76,22 +72,16 @@ fi
 # load rbenv
 if command_exists rbenv; then eval "$(rbenv init -)"; fi
 
-# start tmux by default
-if command_exists tmux && [ -z "$TMUX" ]; then
-  tmux attach -t main || tmux new -s main
-fi
-
 ### Aliases
 
 alias -- -="cd .."
-alias ls='ls -aFh'
+alias ls='ls -aFh1'
 alias mv='mv -i'
 alias r='. ~/.bash_profile'
 alias h=history
 #alias npm-source='PATH=$(npm bin):$PATH'
 #alias bp='~/.bash_profile'
-alias dc='docker-compose'
-alias rg='rg --smart-case --hidden --glob "!.git/*" --glob "!vendor"'
+alias rg='rg --smart-case --hidden --glob "!.git/*"'
 alias dark='set-colorscheme TateDark'
 alias light='set-colorscheme TateLight'
 alias be='bundle exec'
@@ -100,6 +90,9 @@ alias g='git'
 
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# _fzf_compgen_dir() {
+#   fd --type d --hidden --follow --exclude ".git" . "$1"
+# }
 
 ### BETTER DIRECTORY NAVIGATION
 
