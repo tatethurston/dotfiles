@@ -16,21 +16,21 @@ export EDITOR=vim
 export PGUSER=postgres
 export PGHOST=localhost
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 
 # PATH
-DIFF_HIGHLIGHT="$HOMEBREW_REPOSITORY"/share/git-core/contrib/diff-highlight
-GNU_COREUTILS_PATH="$HOMEBREW_REPOSITORY"/opt/coreutils/libexec/gnubin
+DIFF_HIGHLIGHT="$HOMEBREW_PREFIX"/share/git-core/contrib/diff-highlight
+GNU_COREUTILS_PATH="$HOMEBREW_PREFIX"/opt/coreutils/libexec/gnubin
 GO_PATH=~/go/bin
-OPENVPN_PATH="$HOMEBREW_REPOSITORY"/sbin
+OPENVPN_PATH="$HOMEBREW_PREFIX"/sbin
 RBENV_PATH=~/.rbenv/bin
-YARN_PATH="$HOMEBREW_REPOSITORY"/Cellar/node/8.0.0_1/bin
+YARN_PATH="$HOMEBREW_PREFIX"/Cellar/node/8.0.0_1/bin
 MACOS_PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 DOTFILE_PATH=~/dotfiles/bin
-export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:$HOMEBREW_REPOSITORY:$HOMEBREW_REPOSITORY/bin:$DOTFILE_PATH:$MACOS_PATH"
+export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:$HOMEBREW_PREFIX:$HOMEBREW_PREFIX/bin:$DOTFILE_PATH:$MACOS_PATH"
 
 # MANPATH
-MAC_OS_MANPATH="/usr/share/man:/$HOMEBREW_REPOSITORY/share/man"
+MAC_OS_MANPATH="/usr/share/man:/$HOMEBREW_PREFIX/share/man"
 export MANPATH="$GNU_COREUTILS_PATH:$MAC_OS_MANPATH"
 
 ### Loaders
@@ -44,7 +44,7 @@ command_exists() {
 
 # https://osxdaily.com/2007/01/18/airport-the-little-known-command-line-wireless-utility/
 link-airport() {
-  sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /"$HOMEBREW_REPOSITORY"/bin/airport
+  sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /"$HOMEBREW_PREFIX"/bin/airport
 }
 
 wifi-signal() {
@@ -74,7 +74,7 @@ ts-package() {
 
 load_if_exists ~/.bashrc
 load_if_exists ~/.bin/tmuxinator.bash
-# need to run this first: "$HOMEBREW_REPOSITORY"/opt/fzf/install
+# need to run this first: "$HOMEBREW_PREFIX"/opt/fzf/install
 load_if_exists ~/.fzf.bash
 
 # nvm
@@ -84,9 +84,9 @@ load_if_exists "$NVM_DIR/bash_completion"
 
 # https://docs.brew.sh/Shell-Completion
 if command_exists brew; then
-  load_if_exists "$HOMEBREW_REPOSITORY/etc/profile.d/bash_completion.sh"
+  load_if_exists "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 
-  for COMPLETION in "$HOMEBREW_REPOSITORY/etc/bash_completion.d/"*; do
+  for COMPLETION in "$HOMEBREW_PREFIX/etc/bash_completion.d/"*; do
     load_if_exists "$COMPLETION"
   done
 fi
