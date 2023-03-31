@@ -2,7 +2,6 @@
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'godlygeek/tabular'
-Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -19,6 +18,7 @@ Plug 'maxmellon/vim-jsx-pretty',                { 'for': ['javascriptreact', 'ty
 " vim-fetch:
 " vim path/to/file.ext:12:3 in the shell to open file.ext on line 12 at column 3
 Plug 'kopischke/vim-fetch'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'javascriptreact', 'typescriptreact'] }
 call plug#end()
 
 " MISC
@@ -65,6 +65,7 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
 autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
+autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
 autocmd BufNewFile,BufRead *.cts set filetype=typescript
 autocmd BufNewFile,BufRead *.mts set filetype=typescript
 autocmd BufNewFile,BufRead *.gs  set filetype=javascript
@@ -90,7 +91,7 @@ set ruler               " shows row and column number at bottom right corner
 set laststatus=2
 set statusline+=%F
 
-let g:coc_global_extensions = ['coc-diagnostic', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-emmet']
+let g:coc_global_extensions = ['coc-diagnostic', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-tsserver']
 
 " ***** Start CoC Example Config *****
 
