@@ -7,6 +7,7 @@
 [push]
 	default = simple
   autoSetupRemote = true
+	default = current
 [core]
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
@@ -41,3 +42,5 @@
 	# prompt = false
   # # Be able to abort all diffs with `:cq` or `:cquit`
   # trustExitCode = true
+[branch]
+	autoSetupMerge = always

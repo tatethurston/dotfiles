@@ -7,14 +7,12 @@
 umask 022 # macOS default
 
 # Terminal settings (for remote host only)
-#stty erase ^H
 stty erase ^?
 
 ### Environment variables
 export PAGER=less
 export VISUAL=vim
 export EDITOR=vim
-
 export PGUSER=postgres
 export PGHOST=localhost
 
@@ -52,6 +50,26 @@ link-airport() {
 wifi-signal() {
   command_exists airport || link-airport
   airport -s | sort -k 3
+}
+
+git-clone-shallow() {
+  git clone --depth=1 --branch="$2" "$1" "$3"
+  rm -rf ./"$1"/.git
+}
+
+react-package() {
+  git-clone-shallow git@github.com:tatethurston/typescript-package-template.git react "$1"
+}
+
+react-package-sync() {
+  git-clone-shallow git@github.com:tatethurston/typescript-package-template.git react temp
+  mv -f ./temp/* .
+  rm -rf ./temp
+  rm setup
+}
+
+ts-package() {
+  git-clone-shallow git@github.com:tatethurston/typescript-package-template.git main "$1"
 }
 
 load_if_exists ~/.bashrc

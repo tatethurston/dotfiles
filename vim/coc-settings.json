@@ -21,5 +21,6 @@
       "command": "shfmt",
       "args": ["-i", "2", "-ci"]
     }
-  }
+  },
+  "tsserver.useLocalTsdk": true
 }
