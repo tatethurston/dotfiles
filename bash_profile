@@ -16,27 +16,17 @@ export EDITOR=vim
 export PGUSER=postgres
 export PGHOST=localhost
 
+# PATH
+MACOS_PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+DOTFILE_PATH=~/dotfiles/bin
+export PATH="$DOTFILE_PATH:$MACOS_PATH"
+
 # Detect Intel vs Apple Silicon MacOS
 if [[ $(uname -m) == 'arm64' ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   eval "$(/usr/local/bin/brew shellenv)"
 fi
-
-# PATH
-DIFF_HIGHLIGHT="$HOMEBREW_PREFIX"/share/git-core/contrib/diff-highlight
-GNU_COREUTILS_PATH="$HOMEBREW_PREFIX"/opt/coreutils/libexec/gnubin
-GO_PATH=~/go/bin
-OPENVPN_PATH="$HOMEBREW_PREFIX"/sbin
-RBENV_PATH=~/.rbenv/bin
-YARN_PATH="$HOMEBREW_PREFIX"/Cellar/node/8.0.0_1/bin
-MACOS_PATH="/usr/bin:/bin:/usr/sbin:/sbin"
-DOTFILE_PATH=~/dotfiles/bin
-export PATH="$DIFF_HIGHLIGHT:$GNU_COREUTILS_PATH:$GO_PATH:$OPENVPN_PATH:$RBENV_PATH:$YARN_PATH:$HOMEBREW_PREFIX:$HOMEBREW_PREFIX/bin:$DOTFILE_PATH:$MACOS_PATH"
-
-# MANPATH
-MAC_OS_MANPATH="/usr/share/man:/$HOMEBREW_PREFIX/share/man"
-export MANPATH="$GNU_COREUTILS_PATH:$MAC_OS_MANPATH"
 
 ### Loaders
 load_if_exists() {
@@ -57,35 +47,10 @@ wifi-signal() {
   airport -s | sort -k 3
 }
 
-git-clone-shallow() {
-  git clone --depth=1 --branch="$2" "$1" "$3"
-  rm -rf ./"$1"/.git
-}
-
-react-package() {
-  git-clone-shallow git@github.com:tatethurston/typescript-package-template.git react "$1"
-}
-
-react-package-sync() {
-  git-clone-shallow git@github.com:tatethurston/typescript-package-template.git react temp
-  mv -f ./temp/* .
-  rm -rf ./temp
-  rm setup
-}
-
-ts-package() {
-  git-clone-shallow git@github.com:tatethurston/typescript-package-template.git main "$1"
-}
-
 load_if_exists ~/.bashrc
 load_if_exists ~/.bin/tmuxinator.bash
 # need to run this first: "$HOMEBREW_PREFIX"/opt/fzf/install
 load_if_exists ~/.fzf.bash
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-load_if_exists "$NVM_DIR/nvm.sh"
-load_if_exists "$NVM_DIR/bash_completion"
 
 # https://docs.brew.sh/Shell-Completion
 if command_exists brew; then
@@ -95,9 +60,6 @@ if command_exists brew; then
     load_if_exists "$COMPLETION"
   done
 fi
-
-# load rbenv
-if command_exists rbenv; then eval "$(rbenv init -)"; fi
 
 # start tmux by default
 if command_exists tmux && [ -z "$TMUX" ]; then
@@ -111,8 +73,6 @@ alias ls='ls -aFh'
 alias mv='mv -i'
 alias r='. ~/.bash_profile'
 alias h=history
-#alias npm-source='PATH=$(npm bin):$PATH'
-#alias bp='~/.bash_profile'
 alias rg='rg --smart-case --hidden --glob "!.git/*" --glob "!vendor"'
 alias dark='set-colorscheme TateDark'
 alias light='set-colorscheme TateLight'

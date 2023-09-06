@@ -44,3 +44,5 @@
   # trustExitCode = true
 [branch]
 	autoSetupMerge = always
+[gpg]
+	format = ssh
