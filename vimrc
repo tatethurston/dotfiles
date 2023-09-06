@@ -1,8 +1,9 @@
 " Plugins
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" https://raw.githubusercontent.com/godlygeek/tabular/master/doc/Tabular.txt 
 Plug 'godlygeek/tabular'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx', 'html', 'css' ] }
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -10,12 +11,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Syntax
-Plug 'elixir-editors/vim-elixir',               { 'for': 'elixir' }
-Plug 'lifepillar/pgsql.vim',                    { 'for': 'sql' }
-Plug 'pangloss/vim-javascript',                 { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'leafgarland/typescript-vim',              { 'for': ['typescript', 'typescript.jsx'] }
-Plug 'mxw/vim-jsx',                             { 'for': ['javascript.jsx', 'typescript.jsx'] }
+Plug 'editorconfig/editorconfig-vim'
+" Syntax Highlighting
+Plug 'elixir-editors/vim-elixir',        { 'for': 'elixir' }
+Plug 'lifepillar/pgsql.vim',             { 'for': 'sql' }
+Plug 'pangloss/vim-javascript',          { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'leafgarland/typescript-vim',       { 'for': ['typescript', 'typescript.jsx'] }
+Plug 'mxw/vim-jsx',                      { 'for': ['javascript.jsx', 'typescript.jsx'] }
+Plug 'hashivim/vim-terraform',           { 'for': ['hcl', 'terraform'] }
 " vim-fetch:
 " vim path/to/file.ext:12:3 in the shell to open file.ext on line 12 at column 3
 Plug 'kopischke/vim-fetch'
@@ -40,6 +43,9 @@ nnoremap <C-t> :Files<CR>
 
 " annoying
 set noswapfile
+
+" visual mode show rows selected
+set showcmd
 
 " file encoding
 set encoding=utf-8     " The encoding displayed.

@@ -65,6 +65,9 @@ if command_exists brew; then
   load_if_exists "$HOMEBREW_REPOSITORY/etc/profile.d/bash_completion.sh"
 
   for COMPLETION in "$HOMEBREW_REPOSITORY/etc/bash_completion.d/"*; do
+    if [[ "$COMPLETION" =~ "ctest" ]]; then
+      continue
+    fi
     load_if_exists "$COMPLETION"
   done
 fi
@@ -75,6 +78,7 @@ if command_exists rbenv; then eval "$(rbenv init -)"; fi
 ### Aliases
 
 alias -- -="cd .."
+alias less='less -R'
 alias ls='ls -aFh1'
 alias mv='mv -i'
 alias r='. ~/.bash_profile'

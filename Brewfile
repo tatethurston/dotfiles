@@ -9,6 +9,7 @@ brew 'bash'
 brew 'bash-completion@2'
 brew 'bats-core'
 brew 'coreutils'
+brew 'fd'
 brew 'fzf'
 brew 'git'
 brew 'reattach-to-user-namespace' # connect tmux to the OS X clipboard service
