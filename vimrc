@@ -1,24 +1,27 @@
 " Plugins
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" https://raw.githubusercontent.com/godlygeek/tabular/master/doc/Tabular.txt 
 Plug 'godlygeek/tabular'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug '/opt/homebrew/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Syntax
-Plug 'elixir-editors/vim-elixir',               { 'for': 'elixir' }
-Plug 'lifepillar/pgsql.vim',                    { 'for': 'sql' }
-Plug 'pangloss/vim-javascript',                 { 'for': ['javascript', 'javascriptreact'] }
-Plug 'leafgarland/typescript-vim',              { 'for': ['typescript', 'typescriptreact'] }
-Plug 'maxmellon/vim-jsx-pretty',                { 'for': ['javascriptreact', 'typescriptreact'] }
+" Syntax Highlighting
+Plug 'elixir-editors/vim-elixir',  { 'for': 'elixir' }
+Plug 'lifepillar/pgsql.vim',       { 'for': 'sql' }
+Plug 'pangloss/vim-javascript',    { 'for': ['javascript', 'javascriptreact'] }
+Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescriptreact'] }
+Plug 'maxmellon/vim-jsx-pretty',   { 'for': ['javascriptreact', 'typescriptreact'] }
+Plug 'hashivim/vim-terraform',     { 'for': ['hcl', 'terraform'] }
 " vim-fetch:
 " vim path/to/file.ext:12:3 in the shell to open file.ext on line 12 at column 3
 Plug 'kopischke/vim-fetch'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'javascriptreact', 'typescriptreact'] }
+Plug 'mattn/emmet-vim', { 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx', 'html', 'css' ] }
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " MISC
@@ -40,6 +43,9 @@ nnoremap <C-t> :Files<CR>
 
 " annoying
 set noswapfile
+
+" visual mode show rows selected
+set showcmd
 
 " file encoding
 set encoding=utf-8     " The encoding displayed.
@@ -91,9 +97,17 @@ set ruler               " shows row and column number at bottom right corner
 set laststatus=2
 set statusline+=%F
 
-let g:coc_global_extensions = ['coc-diagnostic', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-diagnostic', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-emmet', 'coc-solargraph']
 
-" ***** Start CoC Example Config *****
+""" COC VIM
+" from https://github.com/neoclide/coc.nvim
+
+" May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
+" utf-8 byte sequence
+set encoding=utf-8
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
@@ -248,5 +262,3 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
-""" ***** End CoC Example Config *****

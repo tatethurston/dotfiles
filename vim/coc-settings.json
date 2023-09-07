@@ -1,15 +1,6 @@
 {
   "coc.preferences.extensionUpdateCheck": "never",
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "markdown",
-    "sh",
-    "typescript",
-    "typescriptreact"
-  ],
+  "coc.preferences.formatOnSave": true,
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
@@ -22,6 +13,13 @@
       "args": ["-i", "2", "-ci"]
     }
   },
+  "solargraph.shell": "/bin/bash",
+  "solargraph.useBundler": true,
+  "solargraph.definitions": true,
+  "solargraph.promptDownload": false,
+  "solargraph.checkGemVersion": false,
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
   "tsserver.useLocalTsdk": true,
   "suggest.noselect": true,
   "emmet.triggerExpansionOnTab": true
