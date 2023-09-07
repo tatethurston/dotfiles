@@ -1,16 +1,16 @@
 [init]
-  templatedir = ~/.git_template
+  templatedir   = ~/.git_template
 	defaultBranch = main
 [user]
 	email = tatethurston@gmail.com
 	name = Tate Thurston
 [push]
-	default = simple
+	default         = current
+	default         = simple
   autoSetupRemote = true
-	default = current
 [core]
 	excludesfile = ~/.gitignore_global
-	autocrlf = input
+	autocrlf   = input
 	ignorecase = true
   pager = less
 [help]
@@ -29,10 +29,10 @@
 	ci = commit
 	st = status
   cleanup = "!git branch | grep -v master | xargs git branch -D"
-  remain = "!git checkout main; git pull; git checkout -; git rebase main"
+  remain  = "!git checkout main; git pull; git checkout -; git rebase main"
 [merge]
 	conflictstyle = diff3
-  tool = opendiff
+  tool          = opendiff
 [mergetool]
 	keepBackup = false
 [pull]

@@ -69,11 +69,12 @@ fi
 ### Aliases
 
 alias -- -="cd .."
-alias ls='ls -aFh'
+alias less='less -R'
+alias ls='ls -aFh1'
 alias mv='mv -i'
 alias r='. ~/.bash_profile'
 alias h=history
-alias rg='rg --smart-case --hidden --glob "!.git/*" --glob "!vendor"'
+alias rg='rg --smart-case --hidden --glob "!.git/*"'
 alias dark='set-colorscheme TateDark'
 alias light='set-colorscheme TateLight'
 alias be='bundle exec'
