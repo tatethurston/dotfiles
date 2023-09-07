@@ -6,3 +6,6 @@ set -o ignoreeof
 # Prevent file overwrite on stdout redirection
 # Use `>|` to force redirection to an existing file
 set -o noclobber
+
+# asdf
+source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"

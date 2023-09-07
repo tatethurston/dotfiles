@@ -13,8 +13,6 @@ stty erase ^?
 export PAGER=less
 export VISUAL=vim
 export EDITOR=vim
-export PGUSER=postgres
-export PGHOST=localhost
 
 # PATH
 MACOS_PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
