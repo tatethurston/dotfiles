@@ -97,6 +97,10 @@ export PROMPT_COMMAND="history -a"      # write to history after every command
 
 ### Functions
 
+function j() {
+  cd $(find ~/code -maxdepth 1 | fzf)
+}
+
 dotenv() {
   set -a
   load_if_exists "$1"

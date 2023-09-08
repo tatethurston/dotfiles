@@ -1,6 +1,7 @@
 {
   "coc.preferences.extensionUpdateCheck": "never",
   "coc.preferences.formatOnSave": true,
+  "diagnostic.checkCurrentLine": true,
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },

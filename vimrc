@@ -82,10 +82,18 @@ autocmd BufNewFile,BufRead *.ejs set filetype=html
 if exists('$TMUX')
   set termguicolors
 endif
-syntax enable
+" syntax enable
 set background=dark
-" let g:gruvbox_italic=1
+let g:gruvbox_italic=1
+let g:gruvbox_bold=0
 silent! colorscheme gruvbox
+hi SpellBad                        cterm=underline
+hi CocErrorHighlight               cterm=underline ctermfg=Red
+hi CocWarningHighlight             cterm=underline
+hi CocInfoHighlight                cterm=underline
+hi CocHintHighlight                cterm=underline
+hi CocDeprecatedHighlight          cterm=underline ctermfg=Yellow
+hi CocUnusedHighlight              cterm=underline ctermfg=Yellow
 
 set number
 set wildmenu            " visual autocomplete for command menu

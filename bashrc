@@ -8,4 +8,4 @@ set -o ignoreeof
 set -o noclobber
 
 # asdf
-source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
+source "$(brew --prefix asdf)/libexec/asdf.sh"
