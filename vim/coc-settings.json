@@ -14,6 +14,15 @@
       "args": ["-i", "2", "-ci"]
     }
   },
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  },
   "solargraph.shell": "/bin/bash",
   "solargraph.useBundler": true,
   "solargraph.definitions": true,
