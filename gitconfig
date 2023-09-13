@@ -24,7 +24,7 @@
 [include]
   path = ~/.gitconfig.local
 [alias]
-	co = "! ~/dotfiles/scripts/git/checkout.sh"
+	co = "! ~/.bin/git/checkout.sh"
 	br = branch
 	ci = commit
 	st = status

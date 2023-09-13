@@ -40,7 +40,7 @@ if ! grep -q "$HOMEBREW_REPOSITORY"/bin/bash /etc/shells; then
 fi
 
 ### SSH
-sudo ln -sf ~/dotfiles/sshd_config /etc/ssh/sshd_config
+sudo ln -sf "$PWD/sshd_config" /etc/ssh/sshd_config
 
 # symlink dotfiles
 ./bin/link

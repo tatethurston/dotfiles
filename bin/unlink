@@ -4,8 +4,8 @@
 # ~/dotfiles/. Any existing dotfiles will be restored from ~/dotfiles/backup/.
 # This script is idempotent.
 
-dir=~/dotfiles
-backup=$dir/backup
+dir="$PWD"
+backup="$dir/backup"
 dotfiles=$(ls | grep -v "$(cat .gitignore)" | grep -v 'README.md')
 
 for file in $dotfiles; do

@@ -4,8 +4,8 @@
 # ~/dotfiles/. Any existing dotfiles will be moved to ~/dotfiles/backup/. This
 # script is idempotent.
 
-dir=~/dotfiles
-backup=$dir/backup
+dir="$PWD"
+backup="$dir/backup"
 dotfiles=$(ls | grep -v "$(cat .gitignore)" | grep -v readme.md)
 
 # create the backup folder if it does not exist
