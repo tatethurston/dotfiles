@@ -106,10 +106,11 @@ set statusline+=%F
 
 let g:coc_global_extensions = ['coc-diagnostic', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-emmet', 'coc-solargraph']
 
-if filereadable('~/dotfiles/cocconfig.vim')
-  source ~/dotfiles/cocconfig.vim
-endif
+function SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe "source" a:file 
+  endif
+endfunction
 
-if filereadable('~/.vimrc.local')
-  source ~/.vimrc.local
-endif
+call SourceIfExists('~/.vimrc.local.vim')
+
