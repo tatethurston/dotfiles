@@ -15,7 +15,7 @@ export VISUAL=vim
 export EDITOR=vim
 
 # PATH
-MACOS_PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+MACOS_PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.bin"
 DOTFILE_PATH=~/dotfiles/bin
 export PATH="$DOTFILE_PATH:$MACOS_PATH"
 
