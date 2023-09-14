@@ -45,11 +45,8 @@ sudo ln -sf "$PWD/sshd_config" /etc/ssh/sshd_config
 # symlink dotfiles
 ./bin/link
 
-# disable google chrome swipe
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
-
-# show hidden files
-defaults write com.apple.finder AppleShowAllFiles YES
+# run macos setup
+./macos
 
 # Load terminal themes
 open TateDark.terminal
