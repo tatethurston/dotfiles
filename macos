@@ -6,11 +6,15 @@
 #
 # ./macos
 
-# disable google chrome swipe
+# Disable google chrome swipe
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 
-# show hidden files
+# Show hidden files
 defaults write com.apple.finder AppleShowAllFiles YES
 
-# tab through UI
+# Tab through UI
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Tile Left/Right
+defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Left Side of Screen' '@^\\U2190'
+defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Right Side of Screen' '@^\\U2192'
