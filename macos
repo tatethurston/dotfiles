@@ -16,5 +16,9 @@ defaults write com.apple.finder AppleShowAllFiles YES
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Tile Left/Right
-defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Left Side of Screen' '@^\\U2190'
-defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Right Side of Screen' '@^\\U2192'
+# @      = CMD
+# ^      = Control
+# \U2190 = Left Arrow
+# \U2192 = Right Arrow
+defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Left Side of Screen' '@^\U2190'
+defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Right Side of Screen' '@^\U2192'
