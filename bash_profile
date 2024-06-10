@@ -124,8 +124,6 @@ echo Today is "$(date)"
 echo
 echo Current users: "$(users)"
 echo
-echo System uptime: "$(uptime)"
-echo
 echo Using bash version "$BASH_VERSION"
 echo
 

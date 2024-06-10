@@ -15,6 +15,9 @@ defaults write com.apple.finder AppleShowAllFiles YES
 # Tab through UI
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
+# Automatically show and hide the dock
+defaults write com.apple.dock autohide -bool true
+
 # Tile Left/Right
 # @      = CMD
 # ^      = Control
