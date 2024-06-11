@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-# Setup script for MacOS
+###############################################################################################
+# Setup script for MacOS. This configures system and application settings.
 #
 # Run:
 #
 # ./macos
+###############################################################################################
 
-# Disable google chrome swipe
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
+### System
 
 # Show hidden files
 defaults write com.apple.finder AppleShowAllFiles YES
@@ -18,10 +19,23 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # Automatically show and hide the dock
 defaults write com.apple.dock autohide -bool true
 
-# Tile Left/Right
+# Tile Left/Right and Zoom (maximize without fullscreen)
 # @      = CMD
 # ^      = Control
 # \U2190 = Left Arrow
 # \U2192 = Right Arrow
-defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Left Side of Screen' '@^\U2190'
+# \U2191 = Right Arrow
+defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Left Side of Screen'  '@^\U2190'
 defaults write -g NSUserKeyEquivalents -dict-add 'Move Window to Right Side of Screen' '@^\U2192'
+defaults write -g NSUserKeyEquivalents -dict-add 'Zoom'                                '@^\U2191'
+
+### Applications
+
+## Chrome
+
+# Disable google chrome swipe
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
+
+### End
+
+echo 'Restart your computer to see MacOS changes take effect.'
